@@ -69,6 +69,16 @@ main{padding-block:26px 40px}
 .items{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px}
 @media (max-width:760px){.items{grid-template-columns:minmax(0,1fr)}}
 .item{padding-block:13px;border-bottom:1px dashed var(--rule);min-width:0;break-inside:avoid}
+.item.ph{display:grid;grid-template-columns:76px minmax(0,1fr);gap:14px;align-items:start}
+.thumb{all:unset;cursor:zoom-in;display:block;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--paper);box-shadow:0 6px 14px -8px rgba(40,25,10,.6)}
+.thumb:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.txt{min-width:0}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(12,10,8,.88);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));cursor:zoom-out}
+.lb figure{margin:0;max-width:min(900px,100%);display:grid;gap:10px}
+.lb img{width:100%;max-height:78vh;object-fit:contain;border-radius:12px;background:#000}
+.lb figcaption{color:#f6ecda;display:flex;justify-content:space-between;gap:12px;font-family:var(--display);font-size:1.15rem}
+.lb button{position:absolute;top:max(12px,env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));all:unset;cursor:pointer;color:#fff;font-size:1.8rem;line-height:1;padding:8px 12px}
 .row{display:flex;align-items:baseline;gap:10px}
 .item h3{font-family:var(--display);font-weight:600;font-size:1.12rem;margin:0;overflow-wrap:anywhere}
 .dots{flex:1;border-bottom:2px dotted var(--rule);transform:translateY(-4px);min-width:16px}
@@ -129,7 +139,7 @@ footer a{text-underline-offset:3px}
 <script>
 (function(){
 'use strict';
-var SB='https://utzcnxvqshciszjvvgaj.supabase.co/rest/v1/';
+var SB='https://utzcnxvqshciszjvvgaj.supabase.co/rest/v1/', PH='https://utzcnxvqshciszjvvgaj.supabase.co/storage/v1/object/public/menu-photos/';
 var KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV0emNueHZxc2hjaXN6anZ2Z2FqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUyOTI0NzYsImV4cCI6MjExMDg2ODQ3Nn0.7Mr1zgIqTBgCHSFxuQcSa0RcxzJY79N1ZH4g4iFmNyo';
 var root=document.documentElement, data=JSON.parse(document.getElementById('menu-data').textContent), lang='el', q='';
 var TAG={vegetarian:{el:'Χορτοφαγικό',en:'Vegetarian'},vegan:{el:'Vegan',en:'Vegan'},spicy:{el:'Καυτερό',en:'Spicy'},new:{el:'Νέο',en:'New'}};
@@ -155,8 +165,10 @@ function render(){
         var other=lang==='el'?i.name_en:i.name_el, main=nm(i,'name');
         var tags=(i.tags||[]).filter(function(t){return TAG[t]}).map(function(t){return '<span class="tag '+esc(t)+'">'+TAG[t][lang]+'</span>'}).join('');
         var d=nm(i,'desc');
-        return '<div class="item"><div class="row"><h3>'+esc(main)+'</h3><span class="dots"></span><span class="price">'+price(i.price)+'</span></div>'+
-          (other&&other!==main?'<span class="alt">'+esc(other)+'</span>':'')+(d?'<p>'+esc(d)+'</p>':'')+(tags?'<div class="tags">'+tags+'</div>':'')+'</div>';
+        var body='<div class="row"><h3>'+esc(main)+'</h3><span class="dots"></span><span class="price">'+price(i.price)+'</span></div>'+
+          (other&&other!==main?'<span class="alt">'+esc(other)+'</span>':'')+(d?'<p>'+esc(d)+'</p>':'')+(tags?'<div class="tags">'+tags+'</div>':'');
+        if(!i.photo_path)return '<div class="item">'+body+'</div>';
+        return '<div class="item ph"><button type="button" class="thumb" data-p="'+esc(i.photo_path)+'" data-n="'+esc(main)+'" data-pr="'+esc(price(i.price))+'" aria-label="'+esc((lang==='el'?'Φωτογραφία: ':'Photo: ')+main)+'"><img loading="lazy" alt="" src="'+esc(PH+i.photo_path+'-t.jpg')+'"></button><div class="txt">'+body+'</div></div>';
       }).join('')+'</div></section>';
   });
   if(!count)html='<p class="none">'+(lang==='el'?'Δεν βρέθηκε κάτι. Δοκιμάστε άλλη λέξη.':'Nothing found. Try another word.')+'</p>';
@@ -175,10 +187,20 @@ function spy(){
 }
 document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){lang=b.dataset.set;try{localStorage.setItem('mostra-lang',lang)}catch(e){}render()})});
 var qt;document.getElementById('q').addEventListener('input',function(){var v=this.value;clearTimeout(qt);qt=setTimeout(function(){q=v;render()},120)});
+/* enlarge a dish photo */
+var lb=null,lastBtn=null;
+function closeLb(){if(!lb)return;lb.remove();lb=null;document.body.style.overflow='';if(lastBtn)lastBtn.focus()}
+document.getElementById('menu').addEventListener('click',function(e){
+  var b=e.target.closest('.thumb');if(!b)return;lastBtn=b;
+  lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label',b.dataset.n);
+  lb.innerHTML='<button type="button" aria-label="'+(lang==='el'?'Κλείσιμο':'Close')+'">×</button><figure><img alt="'+esc(b.dataset.n)+'" src="'+esc(PH+b.dataset.p+'.jpg')+'"><figcaption><span>'+esc(b.dataset.n)+'</span><span>'+esc(b.dataset.pr)+'</span></figcaption></figure>';
+  lb.addEventListener('click',closeLb);document.body.appendChild(lb);document.body.style.overflow='hidden';lb.querySelector('button').focus();
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
 render();
 /* live menu: picks up price changes made from the staff app */
 function get(path){return fetch(SB+path,{headers:{apikey:KEY,Authorization:'Bearer '+KEY}}).then(function(r){if(!r.ok)throw r;return r.json()})}
-Promise.all([get('menu_categories?select=id,name_el,name_en,sort&order=sort'),get('menu_items?select=category_id,name_el,name_en,desc_el,desc_en,price,tags,available,sort&available=eq.true&order=sort')])
+Promise.all([get('menu_categories?select=id,name_el,name_en,sort&order=sort'),get('menu_items?select=category_id,name_el,name_en,desc_el,desc_en,price,tags,available,sort,photo_path&available=eq.true&order=sort')])
   .then(function(r){if(r[0].length&&r[1].length){data={categories:r[0],items:r[1]};render()}}).catch(function(){});
 })();
 </script>
