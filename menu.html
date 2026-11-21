@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Μενού · Mostra Meze Tavern</title>
+<meta name="description" content="Το μενού του Mostra Meze Tavern στη Λεμεσό: μεζέδες, θαλασσινά, κρεατικά, τσίπουρα, ούζα και κρασιά. Menu of Mostra Meze Tavern, Limassol.">
+<link rel="canonical" href="https://mostrameze.com/menu">
+<meta property="og:title" content="Μενού · Mostra Meze Tavern">
+<meta property="og:image" content="https://mostrameze.com/img/meze-spread.jpg">
+<meta name="theme-color" content="#0e6b67">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,800;1,7..72,400&family=Commissioner:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: the menu written on Mostra's kraft-paper tablecloth. Turquoise wall header, sticky category rail, two-column price board on wide screens. */
+:root{
+  --wall:#0e6b67;--wall-deep:#09524f;--on-wall:#f3fbf9;
+  --paper:#e9d7b6;--paper-2:#f6ecda;--ink:#2a2118;--ink-soft:#6a5843;--red:#b8382a;--rule:rgba(42,33,24,.2);
+  --display:'Literata',Georgia,'Times New Roman',serif;--body:'Commissioner',system-ui,-apple-system,'Segoe UI',sans-serif;--r:14px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{--wall:#0b4f4c;--wall-deep:#073b39;--on-wall:#e8f6f3;--paper:#221d17;--paper-2:#2b241c;--ink:#f0e4cf;--ink-soft:#bfae94;--red:#e0705f;--rule:rgba(240,228,207,.18);color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.02rem/1.55 var(--body);-webkit-font-smoothing:antialiased;
+  background-image:repeating-linear-gradient(0deg,transparent 0 3px,rgba(120,80,40,.035) 3px 4px)}
+[hidden]{display:none!important}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+[data-lang="el"] .en,[data-lang="en"] .el{display:none!important}
+
+header.top{background:var(--wall);color:var(--on-wall);padding-top:env(safe-area-inset-top)}
+header.top .wrap{display:flex;align-items:center;gap:14px;padding-block:14px}
+.logo{display:block;width:140px;aspect-ratio:1060/228;background:currentColor;-webkit-mask:url(/img/logo.png) center/contain no-repeat;mask:url(/img/logo.png) center/contain no-repeat}
+.home{margin-right:auto;text-decoration:none}
+.lang{display:flex;border:1px solid rgba(255,255,255,.35);border-radius:999px;overflow:hidden}
+.lang button{all:unset;cursor:pointer;font:600 .74rem var(--body);letter-spacing:.08em;padding:6px 11px;color:var(--on-wall)}
+.lang button[aria-pressed="true"]{background:var(--on-wall);color:var(--wall-deep)}
+.lang button:focus-visible{outline:3px solid var(--red)}
+.hero{background:var(--wall);color:var(--on-wall)}
+.hero .wrap{padding-block:8px 28px;display:grid;gap:10px}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,8vw,4.2rem);line-height:1;margin:0;letter-spacing:-.01em}
+.hero p{margin:0;opacity:.9;max-width:36em}
+.hero .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.95rem}
+.btn-red{background:var(--red);color:#fff}
+.btn-line{border:1.5px solid rgba(255,255,255,.6)}
+
+.rail{position:sticky;top:0;z-index:10;background:var(--wall-deep);color:var(--on-wall);box-shadow:0 8px 20px -14px rgba(0,0,0,.6);padding-top:env(safe-area-inset-top)}
+.rail .wrap{display:flex;gap:10px;align-items:center;padding-block:10px}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0;-webkit-mask:linear-gradient(90deg,#000 90%,transparent);mask:linear-gradient(90deg,#000 90%,transparent);padding-right:24px}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex-shrink:0;text-decoration:none;font-weight:600;font-size:.9rem;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.1);white-space:nowrap}
+.chips a[aria-current="true"]{background:var(--on-wall);color:var(--wall-deep)}
+.search{width:150px;flex-shrink:0;border:0;border-radius:999px;padding:8px 13px;background:rgba(255,255,255,.14);color:var(--on-wall);font:inherit;font-size:.92rem}
+.search::placeholder{color:var(--on-wall);opacity:.65}
+.search{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23f3fbf9' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Cpath d='M11 11l3.5 3.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:13px 50%;padding-left:36px;transition:width .2s}
+@media (max-width:560px){.search{width:42px;padding-right:0}.search::placeholder{color:transparent}.search:focus,.search:not(:placeholder-shown){width:150px;padding-right:12px}.search:focus::placeholder{color:var(--on-wall);opacity:.65}}
+
+main{padding-block:26px 40px}
+.cat{background:var(--paper-2);border-radius:var(--r);padding:clamp(18px,4vw,34px);margin-bottom:18px;box-shadow:0 18px 40px -30px rgba(40,25,10,.55)}
+.cat h2{font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,4.5vw,2.3rem);margin:0 0 6px;display:flex;align-items:baseline;gap:12px}
+.cat h2 small{font:600 .72rem var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.items{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px}
+@media (max-width:760px){.items{grid-template-columns:minmax(0,1fr)}}
+.item{padding-block:13px;border-bottom:1px dashed var(--rule);min-width:0;break-inside:avoid}
+.row{display:flex;align-items:baseline;gap:10px}
+.item h3{font-family:var(--display);font-weight:600;font-size:1.12rem;margin:0;overflow-wrap:anywhere}
+.dots{flex:1;border-bottom:2px dotted var(--rule);transform:translateY(-4px);min-width:16px}
+.price{font-family:var(--display);font-weight:600;font-size:1.12rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.item p{margin:4px 0 0;color:var(--ink-soft);font-size:.92rem}
+.alt{display:block;color:var(--ink-soft);font-size:.82rem;margin-top:1px}
+.tags{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.tag{font:600 .66rem var(--body);letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:999px;border:1px solid var(--rule);color:var(--ink-soft)}
+.tag.spicy{border-color:var(--red);color:var(--red)}
+.none{text-align:center;color:var(--ink-soft);padding:30px 10px}
+.note{font-size:.88rem;color:var(--ink-soft);text-align:center;max-width:40em;margin:24px auto 0}
+footer{background:var(--wall-deep);color:var(--on-wall)}
+footer .wrap{padding-block:22px calc(22px + env(safe-area-inset-bottom));display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.88rem}
+footer a{text-underline-offset:3px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Mostra Meze Tavern","url":"https://mostrameze.com","hasMenu":"https://mostrameze.com/menu","telephone":"+357 25 101251","address":{"@type":"PostalAddress","streetAddress":"Saripolou 41","addressLocality":"Limassol","addressCountry":"CY"}}
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="home" href="/" aria-label="Mostra Meze Tavern – αρχική"><span class="logo"></span></a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-el" data-set="el" aria-pressed="true">ΕΛ</button>
+      <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap">
+    <h1><span class="el">Μενού</span><span class="en">Menu</span></h1>
+    <p class="el">Μεζέδες για να μοιραστείτε, ψάρια και κρέατα στη σχάρα, και μια μεγάλη λίστα με τσίπουρα και ούζα.</p>
+    <p class="en">Meze to share, fish and meat from the grill, and a long list of tsipouro and ouzo.</p>
+    <div class="acts">
+      <a class="btn btn-red el" href="https://www.i-host.gr/reservations/new?restaurant=931" target="_blank" rel="noopener">Κράτηση τραπεζιού</a>
+      <a class="btn btn-red en" href="https://www.i-host.gr/reservations/new?lang=eng&amp;restaurant=931" target="_blank" rel="noopener">Book a table</a>
+      <a class="btn btn-line" href="tel:+35725101251">☎ 25 101251</a>
+    </div>
+  </div>
+</section>
+<nav class="rail" aria-label="Κατηγορίες">
+  <div class="wrap">
+    <div class="chips" id="chips"></div>
+    <input class="search" id="q" type="search" placeholder="Αναζήτηση" aria-label="Αναζήτηση στο μενού" autocomplete="off">
+  </div>
+</nav>
+<main class="wrap" id="menu" aria-live="polite"></main>
+<footer>
+  <div class="wrap">
+    <span>Mostra Meze Tavern · <span class="el">Σαριπόλου 41, Λεμεσός</span><span class="en">Saripolou 41, Limassol</span> · 25 101251</span>
+    <a href="/"><span class="el">← Αρχική σελίδα</span><span class="en">← Home page</span></a>
+  </div>
+</footer>
+
+<!-- Snapshot of the menu, used until (or if) the live menu cannot be loaded -->
+<script type="application/json" id="menu-data">{"categories":[{"id":"orektika","name_el":"Ορεκτικά","name_en":"Appetizers","sort":10},{"id":"salates","name_el":"Σαλάτες","name_en":"Salads","sort":20},{"id":"thalassina","name_el":"Θαλασσινά","name_en":"Seafood","sort":30},{"id":"kreatika","name_el":"Κρεατικά","name_en":"Meat","sort":40},{"id":"tsipoura","name_el":"Τσίπουρα","name_en":"Tsipouro","sort":50},{"id":"ouza","name_el":"Ούζα","name_en":"Ouzo","sort":60},{"id":"krasia","name_el":"Κρασιά χύμα","name_en":"House wines","sort":70},{"id":"bires","name_el":"Μπίρες","name_en":"Beers","sort":80}],"items":[{"category_id":"orektika","name_el":"Τζατζίκι","name_en":"Tzatziki","desc_el":"Παραδοσιακό","desc_en":"Greek traditional","price":5.0,"tags":["vegetarian"],"available":true,"sort":10},{"category_id":"orektika","name_el":"Τυροκαυτερή","name_en":"Tyrokafteri","desc_el":"Φέτα με λίγο γιαούρτι και καυτερή πιπεριά","desc_en":"Feta cheese with some yogurt and hot pepper","price":5.5,"tags":["vegetarian","spicy"],"available":true,"sort":20},{"category_id":"orektika","name_el":"Μελιτζανοσαλάτα","name_en":"Eggplant salad","desc_el":"","desc_en":"","price":6.5,"tags":[],"available":true,"sort":30},{"category_id":"orektika","name_el":"Ταραμοσαλάτα","name_en":"Tarama","desc_el":"","desc_en":"","price":5.0,"tags":[],"available":true,"sort":40},{"category_id":"orektika","name_el":"Φάβα","name_en":"Split peas","desc_el":"","desc_en":"Yellow split pea purée","price":5.5,"tags":[],"available":true,"sort":50},{"category_id":"orektika","name_el":"Παντζαροσαλάτα","name_en":"Beetroot salad","desc_el":"","desc_en":"","price":5.0,"tags":[],"available":true,"sort":60},{"category_id":"orektika","name_el":"Κρητικός ντάκος","name_en":"Cretan dakos","desc_el":"Κρητικό παξιμάδι με τριμμένη φέτα, ντομάτα, κρεμμύδι και πιπεριά","desc_en":"Cretan rusk with grated feta, chopped tomato, onion and pepper","price":8.5,"tags":["vegetarian"],"available":true,"sort":70},{"category_id":"orektika","name_el":"Πατάτες τηγανητές","name_en":"Fried potatoes","desc_el":"","desc_en":"","price":4.5,"tags":[],"available":true,"sort":80},{"category_id":"orektika","name_el":"Γίγαντες φούρνου","name_en":"Oven-baked giant beans","desc_el":"Οι παραδοσιακοί","desc_en":"The traditional way","price":5.5,"tags":[],"available":true,"sort":90},{"category_id":"orektika","name_el":"Ντολμαδάκια","name_en":"Dolmades","desc_el":"Αμπελόφυλλα με ρύζι","desc_en":"Grape leaves with rice","price":4.5,"tags":[],"available":true,"sort":100},{"category_id":"orektika","name_el":"Μανιτάρια σοτέ","name_en":"Sautéed mushrooms","desc_el":"Ψητά μανιτάρια σβησμένα με λευκό κρασί","desc_en":"Grilled mushrooms deglazed with white wine","price":7.5,"tags":[],"available":true,"sort":110},{"category_id":"orektika","name_el":"Πιπεριές γεμιστές με φέτα","name_en":"Peppers stuffed with feta","desc_el":"","desc_en":"","price":6.5,"tags":["vegetarian"],"available":true,"sort":120},{"category_id":"orektika","name_el":"Κολοκυθάκια τηγανητά","name_en":"Fried zucchini","desc_el":"","desc_en":"","price":6.5,"tags":[],"available":true,"sort":130},{"category_id":"orektika","name_el":"Μελιτζάνα φούρνου με φέτα","name_en":"Baked eggplant with feta","desc_el":"","desc_en":"","price":8.0,"tags":["vegetarian"],"available":true,"sort":140},{"category_id":"orektika","name_el":"Χταποδοσαλάτα","name_en":"Octopus salad","desc_el":"","desc_en":"","price":8.5,"tags":[],"available":true,"sort":150},{"category_id":"orektika","name_el":"Χαλλούμι σχάρας","name_en":"Grilled halloumi","desc_el":"","desc_en":"","price":6.5,"tags":["vegetarian"],"available":true,"sort":160},{"category_id":"orektika","name_el":"Σαγανάκι κεφαλοτύρι","name_en":"Saganaki kefalotyri","desc_el":"Τηγανητό κεφαλοτύρι","desc_en":"Fried kefalotyri cheese","price":7.5,"tags":["vegetarian"],"available":true,"sort":170},{"category_id":"orektika","name_el":"Φέτα λαδορίγανη","name_en":"Feta with oil and oregano","desc_el":"","desc_en":"","price":7.5,"tags":["vegetarian"],"available":true,"sort":180},{"category_id":"orektika","name_el":"Φέτα ψητή","name_en":"Baked feta","desc_el":"","desc_en":"","price":7.5,"tags":["vegetarian"],"available":true,"sort":190},{"category_id":"salates","name_el":"Χωριάτικη","name_en":"Greek salad","desc_el":"Ντομάτα, αγγούρι, κρεμμύδι, πιπεριά, ελιές και φέτα","desc_en":"Tomato, cucumber, onion, pepper, olives and feta cheese","price":9.5,"tags":["vegetarian"],"available":true,"sort":10},{"category_id":"salates","name_el":"Ντοματοσαλάτα","name_en":"Tomato salad","desc_el":"Ντομάτα, αγγούρι, κρεμμύδι, πιπεριά και ελιές","desc_en":"Tomato, cucumber, onion, pepper and olives","price":8.0,"tags":[],"available":true,"sort":20},{"category_id":"thalassina","name_el":"Γαύρος μαρινάτος","name_en":"Marinated anchovy","desc_el":"","desc_en":"","price":6.5,"tags":[],"available":true,"sort":10},{"category_id":"thalassina","name_el":"Σκουμπρί","name_en":"Mackerel","desc_el":"","desc_en":"","price":7.5,"tags":[],"available":true,"sort":20},{"category_id":"thalassina","name_el":"Ρέγκα","name_en":"Herring","desc_el":"","desc_en":"","price":7.5,"tags":[],"available":true,"sort":30},{"category_id":"thalassina","name_el":"Γαύρος τηγανητός","name_en":"Fried anchovy","desc_el":"","desc_en":"","price":7.5,"tags":[],"available":true,"sort":40},{"category_id":"thalassina","name_el":"Μαρίδα τηγανητή","name_en":"Fried smelt","desc_el":"","desc_en":"","price":7.5,"tags":[],"available":true,"sort":50},{"category_id":"thalassina","name_el":"Καλαμαράκια τηγανητά","name_en":"Fried squid","desc_el":"","desc_en":"","price":9.5,"tags":[],"available":true,"sort":60},{"category_id":"thalassina","name_el":"Σαρδέλες σχάρας","name_en":"Grilled sardines","desc_el":"","desc_en":"","price":7.5,"tags":[],"available":true,"sort":70},{"category_id":"thalassina","name_el":"Χταπόδι σχάρας","name_en":"Grilled octopus","desc_el":"","desc_en":"","price":12.5,"tags":[],"available":true,"sort":80},{"category_id":"thalassina","name_el":"Λαβράκι σχάρας","name_en":"Grilled sea bass","desc_el":"","desc_en":"","price":11.5,"tags":[],"available":true,"sort":90},{"category_id":"thalassina","name_el":"Γαρίδες σχάρας","name_en":"Grilled shrimps","desc_el":"","desc_en":"","price":12.5,"tags":[],"available":true,"sort":100},{"category_id":"thalassina","name_el":"Γαρίδες σαγανάκι","name_en":"Shrimp saganaki","desc_el":"Με φέτα και σάλτσα ντομάτας","desc_en":"With feta and tomato sauce","price":11.5,"tags":[],"available":true,"sort":110},{"category_id":"kreatika","name_el":"Πανσέτα χοιρινή","name_en":"Pork pancetta","desc_el":"","desc_en":"","price":9.0,"tags":[],"available":true,"sort":10},{"category_id":"kreatika","name_el":"Χοιρινά φιλετάκια","name_en":"Pork fillets","desc_el":"","desc_en":"","price":9.0,"tags":[],"available":true,"sort":20},{"category_id":"kreatika","name_el":"Μπούτι κοτόπουλο σχάρας χωρίς κόκαλο","name_en":"Grilled boneless chicken leg","desc_el":"","desc_en":"","price":9.5,"tags":[],"available":true,"sort":30},{"category_id":"kreatika","name_el":"Μπιφτέκι χοιρινό σχάρας","name_en":"Grilled pork burger","desc_el":"","desc_en":"","price":8.5,"tags":[],"available":true,"sort":40},{"category_id":"kreatika","name_el":"Μπιφτέκι γεμιστό με φέτα και ντομάτα","name_en":"Pork burger stuffed with feta and tomato","desc_el":"","desc_en":"","price":10.5,"tags":[],"available":true,"sort":50},{"category_id":"kreatika","name_el":"Λουκάνικο σχάρας","name_en":"Grilled sausage","desc_el":"","desc_en":"","price":8.5,"tags":[],"available":true,"sort":60},{"category_id":"kreatika","name_el":"Σουτζουκάκια σμυρνέικα","name_en":"Smyrna meatballs","desc_el":"","desc_en":"","price":9.5,"tags":[],"available":true,"sort":70},{"category_id":"kreatika","name_el":"Συκώτι μοσχαρίσιο","name_en":"Beef liver","desc_el":"","desc_en":"","price":9.5,"tags":[],"available":true,"sort":80},{"category_id":"kreatika","name_el":"Παϊδάκια αρνίσια","name_en":"Lamb chops","desc_el":"","desc_en":"","price":16.0,"tags":[],"available":true,"sort":90},{"category_id":"kreatika","name_el":"Σουβλάκι αρνίσιο","name_en":"Lamb souvlaki (skewers)","desc_el":"","desc_en":"","price":16.0,"tags":[],"available":true,"sort":100},{"category_id":"kreatika","name_el":"Κεμπάπ γιαουρτλού","name_en":"Kebab yaourtlou","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":110},{"category_id":"tsipoura","name_el":"Τσιπουράκι Mostra 50ml","name_en":"Baby Mostra house tsipouro 50ml","desc_el":"Μικρό μπουκαλάκι τσίπουρο του σπιτιού","desc_en":"Small bottle of house tsipouro","price":3.5,"tags":[],"available":true,"sort":10},{"category_id":"tsipoura","name_el":"Τσίπουρο Mostra 200ml","name_en":"Mostra house tsipouro 200ml","desc_el":"Τσίπουρο του σπιτιού","desc_en":"House tsipouro","price":11.0,"tags":[],"available":true,"sort":20},{"category_id":"tsipoura","name_el":"Αποστολάκη 200ml","name_en":"Apostolakis 200ml","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":30},{"category_id":"tsipoura","name_el":"Τσιλιλή 200ml","name_en":"Tsililis 200ml","desc_el":"","desc_en":"","price":13.0,"tags":[],"available":true,"sort":40},{"category_id":"tsipoura","name_el":"Γάτσιος","name_en":"Gatsios","desc_el":"Με ή χωρίς γλυκάνισο","desc_en":"With or without anise","price":12.0,"tags":[],"available":true,"sort":50},{"category_id":"tsipoura","name_el":"Ηδωνικό","name_en":"Idoniko","desc_el":"","desc_en":"","price":15.0,"tags":[],"available":true,"sort":60},{"category_id":"tsipoura","name_el":"Κατσαρού","name_en":"Katsaros","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":70},{"category_id":"tsipoura","name_el":"Δεκαράκι Μοσχάτο","name_en":"Dekaraki Muscat","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":80},{"category_id":"tsipoura","name_el":"Δεκαράκι Ροδίτης","name_en":"Dekaraki Roditis","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":90},{"category_id":"tsipoura","name_el":"Δεκαράκι Μαλαγουζιά","name_en":"Dekaraki Malagouzia","desc_el":"","desc_en":"","price":13.0,"tags":[],"available":true,"sort":100},{"category_id":"tsipoura","name_el":"Ζώινος Ζίτσας","name_en":"Zoinos Zitsa","desc_el":"","desc_en":"","price":16.0,"tags":[],"available":true,"sort":110},{"category_id":"tsipoura","name_el":"Αγιονέρι παλαιωμένο","name_en":"Agioneri barrel-aged","desc_el":"Παλαιωμένο σε δρύινο βαρέλι","desc_en":"Aged in an oak barrel","price":13.0,"tags":[],"available":true,"sort":120},{"category_id":"tsipoura","name_el":"Black Rose","name_en":"Black Rose","desc_el":"Μονοποικιλιακό Μοσχάτο","desc_en":"Single-varietal Muscat","price":14.0,"tags":[],"available":true,"sort":130},{"category_id":"tsipoura","name_el":"Καρδάση","name_en":"Cardassi","desc_el":"Με ή χωρίς γλυκάνισο","desc_en":"With or without anise","price":12.0,"tags":[],"available":true,"sort":140},{"category_id":"tsipoura","name_el":"Μπαμπατζίμ","name_en":"Babatzim","desc_el":"Με ή χωρίς γλυκάνισο","desc_en":"With or without anise","price":12.0,"tags":[],"available":true,"sort":150},{"category_id":"tsipoura","name_el":"Καλαϊτζή","name_en":"Kalaitzis","desc_el":"Με ή χωρίς γλυκάνισο","desc_en":"With or without anise","price":12.0,"tags":[],"available":true,"sort":160},{"category_id":"tsipoura","name_el":"Weeds","name_en":"Weeds","desc_el":"","desc_en":"","price":13.0,"tags":[],"available":true,"sort":170},{"category_id":"tsipoura","name_el":"Κρητικό ρακί","name_en":"Kretaraki raki","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":180},{"category_id":"tsipoura","name_el":"Ρακί Χαράκη","name_en":"Raki Harakis","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":190},{"category_id":"ouza","name_el":"Πλωμάρι","name_en":"Plomari","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":10},{"category_id":"ouza","name_el":"Σαμαρά","name_en":"Samara","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":20},{"category_id":"ouza","name_el":"Τζιβαέρι","name_en":"Jivaeri","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":30},{"category_id":"ouza","name_el":"For a snack","name_en":"For a snack","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":40},{"category_id":"ouza","name_el":"Ούζο 12","name_en":"Ouzo 12","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":50},{"category_id":"ouza","name_el":"Voluptuous","name_en":"Voluptuous","desc_el":"","desc_en":"","price":13.0,"tags":[],"available":true,"sort":60},{"category_id":"ouza","name_el":"Πιλαβά","name_en":"Pilavas","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":70},{"category_id":"ouza","name_el":"Γιαννατσή 40°","name_en":"Giannatzis 40% vol","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":80},{"category_id":"ouza","name_el":"Γιαννατσή 42°","name_en":"Giannatzis 42% vol","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":90},{"category_id":"ouza","name_el":"Γιαννατσή 45°","name_en":"Giannatzis 45% vol","desc_el":"","desc_en":"","price":13.0,"tags":[],"available":true,"sort":100},{"category_id":"ouza","name_el":"Βαρβαγιάννη μπλε","name_en":"Varvagiannis blue","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":110},{"category_id":"ouza","name_el":"Βαρβαγιάννη πράσινο","name_en":"Varvagiannis green","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":120},{"category_id":"ouza","name_el":"Μπαμπατζίμ","name_en":"Babatzim","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":130},{"category_id":"ouza","name_el":"Καζανιστό Χίου","name_en":"Kazanisto of Chios","desc_el":"","desc_en":"","price":13.0,"tags":[],"available":true,"sort":140},{"category_id":"ouza","name_el":"Μελτέμι","name_en":"Meltemi","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":150},{"category_id":"ouza","name_el":"Μίνι","name_en":"Mini","desc_el":"","desc_en":"","price":13.0,"tags":[],"available":true,"sort":160},{"category_id":"krasia","name_el":"Λευκό Μοσχάτο 0,5 λ.","name_en":"White Muscat 0.5 l","desc_el":"","desc_en":"","price":7.0,"tags":[],"available":true,"sort":10},{"category_id":"krasia","name_el":"Λευκό Μοσχοφίλερο 1 λ.","name_en":"White Moschofilero 1 l","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":20},{"category_id":"krasia","name_el":"Κόκκινο Αγιωργίτικο 0,5 λ.","name_en":"Red Agiorgitiko 0.5 l","desc_el":"","desc_en":"","price":7.0,"tags":[],"available":true,"sort":30},{"category_id":"krasia","name_el":"Κόκκινο Αγιωργίτικο 1 λ.","name_en":"Red Agiorgitiko 1 l","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":40},{"category_id":"krasia","name_el":"Ροζέ ημίξηρο 0,5 λ.","name_en":"Semi-dry rosé 0.5 l","desc_el":"","desc_en":"","price":7.0,"tags":[],"available":true,"sort":50},{"category_id":"krasia","name_el":"Ροζέ ημίξηρο 1 λ.","name_en":"Semi-dry rosé 1 l","desc_el":"","desc_en":"","price":12.0,"tags":[],"available":true,"sort":60},{"category_id":"krasia","name_el":"Ρετσίνα Μαλαματίνα","name_en":"Retsina Malamatina","desc_el":"","desc_en":"","price":7.0,"tags":[],"available":true,"sort":70},{"category_id":"krasia","name_el":"Ρετσίνα Γεωργιάδη","name_en":"Retsina Georgiadis","desc_el":"","desc_en":"","price":7.0,"tags":[],"available":true,"sort":80},{"category_id":"krasia","name_el":"Ρετσίνα κεχριμπάρι","name_en":"Amber retsina","desc_el":"","desc_en":"","price":9.0,"tags":[],"available":true,"sort":90},{"category_id":"bires","name_el":"KEO 630ml","name_en":"KEO 630ml","desc_el":"","desc_en":"","price":5.0,"tags":[],"available":true,"sort":10},{"category_id":"bires","name_el":"Carlsberg 630ml","name_en":"Carlsberg 630ml","desc_el":"","desc_en":"","price":5.0,"tags":[],"available":true,"sort":20},{"category_id":"bires","name_el":"Leon 630ml","name_en":"Leon 630ml","desc_el":"","desc_en":"","price":5.0,"tags":[],"available":true,"sort":30},{"category_id":"bires","name_el":"Heineken 330ml","name_en":"Heineken 330ml","desc_el":"","desc_en":"","price":4.5,"tags":[],"available":true,"sort":40},{"category_id":"bires","name_el":"Άλφα","name_en":"Alfa","desc_el":"","desc_en":"","price":4.0,"tags":[],"available":true,"sort":50},{"category_id":"bires","name_el":"FIX","name_en":"FIX","desc_el":"","desc_en":"","price":4.0,"tags":[],"available":true,"sort":60},{"category_id":"bires","name_el":"Μάμμοθ 500ml","name_en":"Mammoth 500ml","desc_el":"","desc_en":"","price":4.5,"tags":[],"available":true,"sort":70},{"category_id":"bires","name_el":"Stella Artois","name_en":"Stella Artois","desc_el":"","desc_en":"","price":4.0,"tags":[],"available":true,"sort":80},{"category_id":"bires","name_el":"Stella Artois χωρίς αλκοόλ","name_en":"Stella Artois alcohol-free","desc_el":"","desc_en":"","price":3.5,"tags":[],"available":true,"sort":90},{"category_id":"bires","name_el":"Μύθος 330ml","name_en":"Mythos 330ml","desc_el":"","desc_en":"","price":4.0,"tags":[],"available":true,"sort":100},{"category_id":"bires","name_el":"Βεργίνα 330ml","name_en":"Vergina 330ml","desc_el":"","desc_en":"","price":4.0,"tags":[],"available":true,"sort":110},{"category_id":"bires","name_el":"Μύθος 500ml","name_en":"Mythos 500ml","desc_el":"","desc_en":"","price":4.5,"tags":[],"available":true,"sort":120}]}</script>
+<script>
+(function(){
+'use strict';
+var SB='https://utzcnxvqshciszjvvgaj.supabase.co/rest/v1/';
+var KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV0emNueHZxc2hjaXN6anZ2Z2FqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUyOTI0NzYsImV4cCI6MjExMDg2ODQ3Nn0.7Mr1zgIqTBgCHSFxuQcSa0RcxzJY79N1ZH4g4iFmNyo';
+var root=document.documentElement, data=JSON.parse(document.getElementById('menu-data').textContent), lang='el', q='';
+var TAG={vegetarian:{el:'Χορτοφαγικό',en:'Vegetarian'},vegan:{el:'Vegan',en:'Vegan'},spicy:{el:'Καυτερό',en:'Spicy'},new:{el:'Νέο',en:'New'}};
+try{lang=localStorage.getItem('mostra-lang')||'';}catch(e){}
+if(lang!=='el'&&lang!=='en')lang=(navigator.language||'').toLowerCase().indexOf('el')===0?'el':'en';
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function price(p){return '€'+Number(p).toFixed(2).replace('.',lang==='el'?',':'.')}
+function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+function nm(o,f){var a=o[f+'_'+lang],b=o[f+'_'+(lang==='el'?'en':'el')];return a||b||''}
+function render(){
+  root.setAttribute('data-lang',lang);root.lang=lang;
+  document.title=(lang==='el'?'Μενού':'Menu')+' · Mostra Meze Tavern';
+  ['el','en'].forEach(function(l){document.getElementById('lang-'+l).setAttribute('aria-pressed',l===lang)});
+  document.getElementById('q').placeholder=lang==='el'?'Αναζήτηση':'Search';
+  var nq=norm(q.trim()),html='',chips='',count=0;
+  data.categories.forEach(function(c){
+    var items=data.items.filter(function(i){return i.category_id===c.id&&i.available!==false&&(!nq||norm(i.name_el+' '+i.name_en+' '+i.desc_el+' '+i.desc_en).indexOf(nq)>=0)});
+    if(!items.length)return;
+    count+=items.length;
+    chips+='<a href="#c-'+esc(c.id)+'" data-c="'+esc(c.id)+'">'+esc(nm(c,'name'))+'</a>';
+    html+='<section class="cat" id="c-'+esc(c.id)+'"><h2>'+esc(nm(c,'name'))+' <small>'+esc(lang==='el'?c.name_en:c.name_el)+'</small></h2><div class="items">'+
+      items.map(function(i){
+        var other=lang==='el'?i.name_en:i.name_el, main=nm(i,'name');
+        var tags=(i.tags||[]).filter(function(t){return TAG[t]}).map(function(t){return '<span class="tag '+esc(t)+'">'+TAG[t][lang]+'</span>'}).join('');
+        var d=nm(i,'desc');
+        return '<div class="item"><div class="row"><h3>'+esc(main)+'</h3><span class="dots"></span><span class="price">'+price(i.price)+'</span></div>'+
+          (other&&other!==main?'<span class="alt">'+esc(other)+'</span>':'')+(d?'<p>'+esc(d)+'</p>':'')+(tags?'<div class="tags">'+tags+'</div>':'')+'</div>';
+      }).join('')+'</div></section>';
+  });
+  if(!count)html='<p class="none">'+(lang==='el'?'Δεν βρέθηκε κάτι. Δοκιμάστε άλλη λέξη.':'Nothing found. Try another word.')+'</p>';
+  html+='<p class="note">'+(lang==='el'?'Αν έχετε αλλεργίες ή διατροφικούς περιορισμούς, ενημερώστε μας πριν παραγγείλετε.':'If you have allergies or dietary needs, please tell us before you order.')+'</p>';
+  document.getElementById('menu').innerHTML=html;
+  document.getElementById('chips').innerHTML=chips;
+  spy();
+}
+/* highlight the category in view */
+var io=null;
+function spy(){
+  if(io)io.disconnect(); if(!('IntersectionObserver' in window))return;
+  io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var id=e.target.id.slice(2);
+    document.querySelectorAll('#chips a').forEach(function(a){var on=a.dataset.c===id;a.setAttribute('aria-current',on);if(on&&a.scrollIntoView)a.parentNode.scrollTo({left:a.offsetLeft-20,behavior:'smooth'})})}})},{rootMargin:'-140px 0px -60% 0px'});
+  document.querySelectorAll('.cat').forEach(function(s){io.observe(s)});
+}
+document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){lang=b.dataset.set;try{localStorage.setItem('mostra-lang',lang)}catch(e){}render()})});
+var qt;document.getElementById('q').addEventListener('input',function(){var v=this.value;clearTimeout(qt);qt=setTimeout(function(){q=v;render()},120)});
+render();
+/* live menu: picks up price changes made from the staff app */
+function get(path){return fetch(SB+path,{headers:{apikey:KEY,Authorization:'Bearer '+KEY}}).then(function(r){if(!r.ok)throw r;return r.json()})}
+Promise.all([get('menu_categories?select=id,name_el,name_en,sort&order=sort'),get('menu_items?select=category_id,name_el,name_en,desc_el,desc_en,price,tags,available,sort&available=eq.true&order=sort')])
+  .then(function(r){if(r[0].length&&r[1].length){data={categories:r[0],items:r[1]};render()}}).catch(function(){});
+})();
+</script>
+</body>
+</html>

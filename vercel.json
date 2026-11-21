@@ -1,22 +1,74 @@
 {
+  "cleanUrls": true,
   "redirects": [
-    { "source": "/contact", "destination": "/#visit", "permanent": true },
-    { "source": "/contact/", "destination": "/#visit", "permanent": true },
-    { "source": "/menu", "destination": "https://reaction.menu/7QD2biAJciTz5Nbc4EsKHIsIsJl2", "permanent": false },
-    { "source": "/menu/", "destination": "https://reaction.menu/7QD2biAJciTz5Nbc4EsKHIsIsJl2", "permanent": false },
-    { "source": "/home", "destination": "/", "permanent": true },
-    { "source": "/home/", "destination": "/", "permanent": true },
-    { "source": "/wp-admin/:path*", "destination": "/", "permanent": false },
-    { "source": "/wp-login.php", "destination": "/", "permanent": false },
-    { "source": "/feed/:path*", "destination": "/", "permanent": true },
-    { "source": "/category/:path*", "destination": "/", "permanent": true },
-    { "source": "/:year(\\d{4})/:path*", "destination": "/", "permanent": true }
+    {
+      "source": "/contact",
+      "destination": "/#visit",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
+      "destination": "/#visit",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-admin/:path*",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/wp-login.php",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/feed/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/category/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:year(\\d{4})/:path*",
+      "destination": "/",
+      "permanent": true
+    }
   ],
   "headers": [
-    { "source": "/(img|video)/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }] },
-    { "source": "/(.*)", "headers": [
-      { "key": "X-Content-Type-Options", "value": "nosniff" },
-      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-    ] }
+    {
+      "source": "/(img|video)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
   ]
 }
