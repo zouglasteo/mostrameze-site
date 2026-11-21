@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://mostrameze.com/">
+<meta property="og:url" content="https://mostrameze.com/">
+<meta property="og:type" content="restaurant">
+<title>Mostra Meze Tavern</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Mostra Meze Tavern – Greek meze tavern at Saripolou 41, Limassol. 50+ dishes to share. Tuesday–Sunday 12:30–23:00. Tel. 25 101251.">
+<meta property="og:title" content="Mostra Meze Tavern – Limassol">
+<meta property="og:image" content="https://mostrameze.com/img/terrace.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,800;1,7..72,400;1,7..72,600&family=Commissioner:wght@400;500;600;700&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Mostra Meze Tavern",
+  "url": "https://mostrameze.com",
+  "servesCuisine": ["Greek", "Meze"],
+  "telephone": "+357 25 101251",
+  "email": "mostrameze@gmail.com",
+  "priceRange": "€€",
+  "address": {"@type": "PostalAddress", "streetAddress": "Saripolou 41", "addressLocality": "Limassol", "addressCountry": "CY"},
+  "geo": {"@type": "GeoCoordinates", "latitude": 34.675635, "longitude": 33.043097},
+  "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "12:30", "closes": "23:00"}],
+  "acceptsReservations": true,
+  "hasMenu": "https://reaction.menu/7QD2biAJciTz5Nbc4EsKHIsIsJl2",
+  "sameAs": ["https://www.tripadvisor.com/Restaurant_Review-g190382-d23873437-Reviews-Mostra_Meze_Tavern-Limassol_City_Limassol.html","https://www.facebook.com/@Mostratsipouradiko/","https://www.instagram.com/mostra_meze","https://www.tiktok.com/@mostra_meze"]
+}
+</script>
+<style>
+/* Layout: a turquoise "tavern wall" opening, then a kraft-paper tablecloth where the menu is written like a handwritten board, then the visit card. */
+:root{
+  --wall:#0e6b67;        /* turquoise walls */
+  --wall-deep:#09524f;
+  --on-wall:#f3fbf9;
+  --paper:#e9d7b6;       /* kraft tablecloth */
+  --paper-2:#f4e8d1;
+  --ink:#2a2118;         /* dark wood */
+  --ink-soft:#6a5843;
+  --red:#b8382a;         /* chair cushions */
+  --rule:rgba(42,33,24,.22);
+  --bg:#f7efe0;
+  --display:'Literata', Georgia, 'Times New Roman', serif;
+  --body:'Commissioner', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --wall:#0b4f4c;--wall-deep:#073b39;--on-wall:#e8f6f3;
+  --paper:#2b241c;--paper-2:#221d17;--ink:#f0e4cf;--ink-soft:#bfae94;
+  --red:#e0705f;--rule:rgba(240,228,207,.18);--bg:#1a1612;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --wall:#0b4f4c;--wall-deep:#073b39;--on-wall:#e8f6f3;
+  --paper:#2b241c;--paper-2:#221d17;--ink:#f0e4cf;--ink-soft:#bfae94;
+  --red:#e0705f;--rule:rgba(240,228,207,.18);--bg:#1a1612;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--wall-deep)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;text-wrap:balance;margin:0}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:4px}
+
+/* language toggle */
+[data-lang="el"] .en,[data-lang="en"] .el{display:none!important}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--wall-deep);color:var(--on-wall)}
+.nav .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
+.logo{display:block;background:currentColor;-webkit-mask:url(img/logo.png) center/contain no-repeat;mask:url(img/logo.png) center/contain no-repeat;aspect-ratio:1060/228;max-width:100%}
+.mark{display:block;width:150px;color:var(--on-wall)}
+.nav nav{display:flex;gap:22px;margin-left:auto;font-weight:500;font-size:.95rem}
+.nav nav a{text-decoration:none;opacity:.9}
+.nav nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
+.lang{display:flex;border:1px solid rgba(255,255,255,.35);border-radius:999px;overflow:hidden}
+.lang button{all:unset;cursor:pointer;font:600 .74rem var(--body);letter-spacing:.08em;padding:6px 11px;color:var(--on-wall)}
+.lang button[aria-pressed="true"]{background:var(--on-wall);color:var(--wall-deep)}
+@media (max-width:640px){.nav nav{display:none}.lang{margin-left:auto}}
+
+/* hero: turquoise wall with a faint tiled pattern */
+.hero{background:#14110d;color:#fff8ee;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(9,40,38,.78) 0%,rgba(14,12,9,.45) 45%,rgba(14,12,9,.82) 100%)}
+.hero h1 .logo{width:min(560px,100%);color:#fff8ee}
+.hero .wrap{position:relative;z-index:2;padding-block:clamp(56px,10vw,120px) clamp(48px,8vw,96px);display:grid;gap:28px}
+.status{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.88rem;letter-spacing:.04em;background:rgba(0,0,0,.18);padding:7px 14px 7px 12px;border-radius:999px;width:fit-content}
+.status i{width:9px;height:9px;border-radius:50%;background:#f0b44c}
+.status.open i{background:#7be0a6;box-shadow:0 0 0 4px rgba(123,224,166,.25)}
+.hero h1{margin:0}
+.hero h1 em{font-weight:400;font-style:italic;display:block;font-size:clamp(1.3rem,3.2vw,2rem);margin-top:22px;opacity:.95}
+.hero p.lede{max-width:34em;font-size:1.15rem;opacity:.92;margin:0}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.98rem;transition:transform .25s,background .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-line{border:1.5px solid rgba(255,255,255,.7);color:#fff8ee}
+.btn-line:hover{background:rgba(255,255,255,.1)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.22);backdrop-filter:blur(6px);border-radius:var(--r);overflow:hidden;margin-top:26px;max-width:760px}
+.facts div{background:rgba(9,60,57,.72);padding:16px 18px}
+.facts b{display:block;font-family:var(--display);font-size:1.6rem;font-weight:600;line-height:1.1}
+.facts span{font-size:.85rem;opacity:.85}
+@media (max-width:560px){.facts{grid-template-columns:1fr}}
+
+/* sections */
+section{padding-block:clamp(64px,9vw,104px)}
+.eyebrow{font:600 .76rem var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin:0 0 12px}
+h2{font-size:clamp(2.1rem,5vw,3.3rem);margin-bottom:18px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,80px);align-items:start}
+.about p{margin:0 0 16px;color:var(--ink-soft);max-width:36em}
+.about figure{margin:0;display:grid;gap:18px}
+.about figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);box-shadow:0 24px 50px -30px rgba(40,25,10,.6)}
+.about .pull{font-family:var(--display);font-style:italic;font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.35;color:var(--ink);border-left:3px solid var(--red);padding-left:20px;margin:0}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+
+/* menu: written on kraft paper */
+.menu{background:var(--paper);background-image:repeating-linear-gradient(0deg,transparent 0 3px,rgba(120,80,40,.035) 3px 4px)}
+.menu-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.menu-head p{margin:0;color:var(--ink-soft);max-width:30em}
+.board{background:var(--paper-2);border-radius:var(--r);padding:clamp(22px,4vw,44px);box-shadow:0 18px 40px -26px rgba(40,25,10,.5);display:grid;grid-template-columns:1fr 1fr;gap:8px 56px}
+@media (max-width:760px){.board{grid-template-columns:1fr}}
+.item{padding-block:18px;border-bottom:1px dashed var(--rule);min-width:0}
+.item .row{display:flex;align-items:baseline;gap:10px}
+.item h3{font-size:1.4rem}
+.item .dots{flex:1;border-bottom:2px dotted var(--rule);transform:translateY(-5px);min-width:20px}
+.item .price{font-family:var(--display);font-weight:600;font-size:1.3rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.item p{margin:6px 0 8px;color:var(--ink-soft);font-size:.97rem}
+.tag{display:inline-block;font:600 .68rem var(--body);letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--rule);color:var(--ink-soft)}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;align-items:center;font-size:.88rem;color:var(--ink-soft)}
+.menu .more{margin-top:30px;display:flex;justify-content:center}
+.btn-ink{background:var(--ink);color:var(--paper-2)}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,5vw,64px);align-items:start}
+@media (max-width:820px){.visit-grid{grid-template-columns:1fr}}
+.info{display:grid;gap:26px}
+.info h3{font:600 .76rem var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.info .big{font-family:var(--display);font-size:1.6rem;font-weight:600;line-height:1.2}
+.copyrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.copy{all:unset;cursor:pointer;font:600 .8rem var(--body);padding:6px 12px;border-radius:999px;border:1px solid var(--rule)}
+.copy:hover{border-color:var(--ink)}
+.links{display:flex;flex-wrap:wrap;gap:10px 18px}
+.links a{font-weight:500;text-underline-offset:4px}
+.hours{border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+.hours div{display:flex;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+.hours div:last-child{border-bottom:0}
+.hours .closed span:last-child{color:var(--red);font-weight:500}
+.hours .today{background:var(--wall);color:var(--on-wall);font-weight:600}
+.hours .today.closed span:last-child{color:var(--on-wall)}
+
+/* gallery */
+.gallery-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.gallery-head p{margin:0;color:var(--ink-soft);max-width:30em}
+.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.strip+.strip{margin-top:16px}
+.strip video,.strip img{width:100%;height:100%;object-fit:cover;border-radius:var(--r);display:block;background:var(--paper)}
+.strip .reel{aspect-ratio:9/15}
+.strip .shot{aspect-ratio:4/5}
+.strip figure{margin:0;min-width:0}
+@media (max-width:700px){
+  .scroller{overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));scrollbar-width:none}
+  .scroller::-webkit-scrollbar{display:none}
+  .strip{grid-template-columns:repeat(3,72%);width:max-content;min-width:100%}
+  .strip figure{scroll-snap-align:center}
+}
+.reviews{background:var(--wall);color:var(--on-wall);padding-block:clamp(48px,7vw,80px)}
+.reviews .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.reviews h2{margin-bottom:8px}
+.reviews p{margin:0;opacity:.9;max-width:34em}
+.reviews .eyebrow{color:var(--on-wall);opacity:.8}
+.reviews .btn{background:var(--on-wall);color:var(--wall-deep)}
+footer{background:var(--wall-deep);color:var(--on-wall)}
+footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.88rem;opacity:.9}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Mostra Greek Meze Tavern"><span class="logo"></span></a>
+    <nav>
+      <a href="#menu"><span class="el">Μενού</span><span class="en">Menu</span></a>
+      <a href="#gallery"><span class="el">Φωτογραφίες</span><span class="en">Photos</span></a>
+      <a href="#reviews"><span class="el">Κριτικές</span><span class="en">Reviews</span></a>
+      <a href="#visit"><span class="el">Επικοινωνία</span><span class="en">Visit</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-el" data-set="el" aria-pressed="false">ΕΛ</button>
+      <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <picture class="hero-bg"><source srcset="img/terrace.webp" type="image/webp"><img src="img/terrace.jpg" alt="Η αυλή του Mostra το βράδυ, γεμάτη τραπέζια με κόσμο κάτω από φωτάκια" width="1800" height="1350" fetchpriority="high"></picture>
+    <div class="wrap">
+      <div class="status" id="status"><i></i><span id="status-text">Τρίτη–Κυριακή 12:30–23:00</span></div>
+      <h1><span class="logo" role="img" aria-label="Mostra Greek Meze Tavern"></span>
+        <em class="el">Ελληνικό μεζεδοπωλείο στην πλατεία Σαριπόλου</em>
+        <em class="en">Greek meze tavern on Saripolou Square</em>
+      </h1>
+      <p class="lede el">Πάνω από 50 μεζέδες για να μοιραστείτε, ένα τσίπουρο στο τραπέζι και η φασαρία της παλιάς Λεμεσού δίπλα στην Αγορά. Για μεσημεριανό ή βραδινό, από τις 12:30.</p>
+      <p class="lede en">Over 50 small dishes to share, tsipouro on the table, and the buzz of old Limassol right by the Agora. For lunch or dinner, from 12:30.</p>
+      <div class="ctas">
+        <a class="btn btn-red el" href="https://www.i-host.gr/reservations/new?restaurant=931" target="_blank" rel="noopener">Κράτηση τραπεζιού</a>
+        <a class="btn btn-red en" href="https://www.i-host.gr/reservations/new?lang=eng&restaurant=931" target="_blank" rel="noopener">Book a table</a>
+        <a class="btn btn-line" href="tel:+35725101251">☎ 25 101251</a>
+        <a class="btn btn-line" href="https://reaction.menu/7QD2biAJciTz5Nbc4EsKHIsIsJl2" target="_blank" rel="noopener"><span class="el">Δείτε το μενού</span><span class="en">See the menu</span></a>
+      </div>
+      <div class="facts">
+        <div><b>50+</b><span class="el">μεζέδες στο μενού</span><span class="en">dishes on the menu</span></div>
+        <div><b>12:30</b><span class="el">ανοίγουμε Τρίτη–Κυριακή</span><span class="en">open Tuesday–Sunday</span></div>
+        <div><b>Σαριπόλου 41</b><span class="el">δίπλα στην Αγορά</span><span class="en">next to the Agora</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap about">
+      <div>
+        <p class="eyebrow"><span class="el">Το μαγαζί</span><span class="en">About us</span></p>
+        <h2 class="el">Μια ταβέρνα για να κάθεσαι πολύ</h2>
+        <h2 class="en">A tavern made for long evenings</h2>
+        <p class="el">Στο Mostra το φαγητό έρχεται σε μικρά πιάτα, το ένα μετά το άλλο, για όλο το τραπέζι. Παραγγέλνετε λίγους μεζέδες, ένα καραφάκι, και συνεχίζετε όσο κρατάει η κουβέντα.</p>
+        <p class="en">At Mostra the food comes in small plates, one after another, for the whole table. Order a few meze, a carafe of tsipouro or wine, and keep going for as long as the conversation lasts.</p>
+        <p class="el">Έχουμε επιλογές με θαλασσινά, κρέας, χορτοφαγικές και vegan, ώστε να βρίσκει κάτι ο καθένας.</p>
+        <p class="en">There are seafood, meat, vegetarian and vegan dishes, so everyone at the table finds something.</p>
+      </div>
+      <figure>
+        <picture><source srcset="img/meze-spread.webp" type="image/webp"><img src="img/meze-spread.jpg" alt="Μεζέδες σε χάρτινο τραπεζομάντηλο του Mostra: φάβα, μελιτζανοσαλάτα, ταραμάς, χταπόδι και σαγανάκι σε πήλινο" width="1000" height="1230" loading="lazy"></picture>
+        <blockquote class="pull el">«Λίγο απ’ όλα, για όλους, και μετά άλλη μια γύρα.»</blockquote>
+        <blockquote class="pull en">“A little of everything, for everyone, then one more round.”</blockquote>
+      </figure>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="menu-head">
+        <div>
+          <p class="eyebrow"><span class="el">Από την κουζίνα</span><span class="en">From the kitchen</span></p>
+          <h2 class="el">Οι αγαπημένοι μας μεζέδες</h2>
+          <h2 class="en">House favourites</h2>
+        </div>
+        <p class="el">Τέσσερα από τα πιάτα που παραγγέλνονται συχνότερα. Ολόκληρο το μενού με τους 50+ μεζέδες είναι online.</p>
+        <p class="en">Four of the dishes our guests order most. The full menu with all 50+ meze is online.</p>
+      </div>
+      <div class="board">
+        <div class="item">
+          <div class="row"><h3><span class="el">Γαρίδες σαγανάκι</span><span class="en">Shrimp saganaki</span></h3><span class="dots"></span><span class="price">€12.50</span></div>
+          <p class="el">Γαρίδες με σάλτσα ντομάτας, πιπεριές και φέτα.</p>
+          <p class="en">Shrimp cooked in tomato sauce with peppers and feta.</p>
+          <span class="tag"><span class="el">Θαλασσινά</span><span class="en">Seafood</span></span>
+        </div>
+        <div class="item">
+          <div class="row"><h3><span class="el">Χταπόδι σχάρας</span><span class="en">Grilled octopus</span></h3><span class="dots"></span><span class="price">€12.50</span></div>
+          <p class="el">Με φάβα και καραμελωμένα κρεμμύδια.</p>
+          <p class="en">Served with fava and caramelised onions.</p>
+          <span class="tag"><span class="el">Θαλασσινά</span><span class="en">Seafood</span></span>
+        </div>
+        <div class="item">
+          <div class="row"><h3><span class="el">Σαγανάκι τυρί</span><span class="en">Saganaki cheese</span></h3><span class="dots"></span><span class="price">€9.50</span></div>
+          <p class="el">Παραδοσιακό τηγανητό τυρί.</p>
+          <p class="en">Traditional pan-fried cheese.</p>
+          <span class="tag"><span class="el">Χορτοφαγικό</span><span class="en">Vegetarian</span></span>
+        </div>
+        <div class="item">
+          <div class="row"><h3><span class="el">Γίγαντες φούρνου</span><span class="en">Giant beans</span></h3><span class="dots"></span><span class="price">€5.50</span></div>
+          <p class="el">Γίγαντες σιγοψημένοι στον φούρνο με λαχανικά.</p>
+          <p class="en">Giant beans slow-baked in the oven with vegetables.</p>
+          <span class="tag">Vegan</span>
+        </div>
+      </div>
+      <div class="more">
+        <a class="btn btn-ink" href="https://reaction.menu/7QD2biAJciTz5Nbc4EsKHIsIsJl2" target="_blank" rel="noopener"><span class="el">Όλο το μενού →</span><span class="en">Full menu →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <div class="gallery-head">
+        <div>
+          <p class="eyebrow"><span class="el">Στο τραπέζι</span><span class="en">At the table</span></p>
+          <h2 class="el">Έτσι μοιάζει ένα βράδυ στο Mostra</h2>
+          <h2 class="en">What an evening at Mostra looks like</h2>
+        </div>
+        <p class="el">Περισσότερα στο <a href="https://www.instagram.com/mostra_meze" target="_blank" rel="noopener">Instagram @mostra_meze</a>.</p>
+        <p class="en">See more on <a href="https://www.instagram.com/mostra_meze" target="_blank" rel="noopener">Instagram @mostra_meze</a>.</p>
+      </div>
+      <div class="scroller">
+        <div class="strip">
+          <figure class="reel"><video id="reel-1" src="video/reel-1.mp4" poster="video/reel-1.jpg" muted loop playsinline preload="none" aria-label="Γαρίδες σχάρας και σαγανάκι στο Mostra"></video></figure>
+          <figure class="reel"><video id="reel-2" src="video/reel-2.mp4" poster="video/reel-2.jpg" muted loop playsinline preload="none" aria-label="Τζατζίκι με πίτα και σουτζουκάκια στο Mostra"></video></figure>
+          <figure class="reel"><video id="reel-3" src="video/reel-3.mp4" poster="video/reel-3.jpg" muted loop playsinline preload="none" aria-label="Μεζέδες, πατάτες και κοτόπουλο με πιπεριές στο Mostra"></video></figure>
+        </div>
+      </div>
+      <div class="scroller">
+        <div class="strip">
+          <figure class="shot"><picture><source srcset="img/serving.webp" type="image/webp"><img src="img/serving.jpg" alt="Σερβίρισμα μελιτζανοσαλάτας σε τραπέζι με ταραμά, χταποδοσαλάτα και σαγανάκι" width="900" height="1105" loading="lazy"></picture></figure>
+          <figure class="shot"><picture><source srcset="img/octopus-fava.webp" type="image/webp"><img src="img/octopus-fava.jpg" alt="Χταπόδι με φάβα, σαρδέλες σχάρας και τηγανάκι με φέτα" width="900" height="1115" loading="lazy"></picture></figure>
+          <figure class="shot"><picture><source srcset="img/sardines.webp" type="image/webp"><img src="img/sardines.jpg" alt="Σαρδέλες σχάρας ανάμεσα σε μεζέδες" width="900" height="1113" loading="lazy"></picture></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow"><span class="el">Κριτικές</span><span class="en">Reviews</span></p>
+        <h2 class="el">Τι λένε οι επισκέπτες μας</h2>
+        <h2 class="en">What our guests say</h2>
+        <p class="el">Διαβάστε τις κριτικές των πελατών μας στο TripAdvisor και αφήστε κι εσείς τη δική σας μετά την επίσκεψή σας.</p>
+        <p class="en">Read what our guests write on TripAdvisor, and leave your own after your visit.</p>
+      </div>
+      <a class="btn el" href="https://www.tripadvisor.com.gr/Restaurant_Review-g190382-d23873437-Reviews-Mostra_Meze_Tavern-Limassol_City_Limassol.html" target="_blank" rel="noopener">Κριτικές στο TripAdvisor →</a>
+      <a class="btn en" href="https://www.tripadvisor.com/Restaurant_Review-g190382-d23873437-Reviews-Mostra_Meze_Tavern-Limassol_City_Limassol.html" target="_blank" rel="noopener">Reviews on TripAdvisor →</a>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap visit-grid">
+      <div class="info">
+        <div>
+          <p class="eyebrow"><span class="el">Ελάτε να μας δείτε</span><span class="en">Come and see us</span></p>
+          <h2 class="el">Κράτηση & επικοινωνία</h2>
+          <h2 class="en">Bookings & directions</h2>
+        </div>
+        <div>
+          <h3><span class="el">Διεύθυνση</span><span class="en">Address</span></h3>
+          <div class="big"><span class="el">Σαριπόλου 41, Λεμεσός</span><span class="en">Saripolou 41, Limassol</span></div>
+          <div class="links" style="margin-top:6px"><a href="https://www.google.com/maps/search/?api=1&query=34.675635,33.043097" target="_blank" rel="noopener"><span class="el">Οδηγίες στο Google Maps</span><span class="en">Directions in Google Maps</span></a></div>
+        </div>
+        <div>
+          <a class="btn btn-red el" href="https://www.i-host.gr/reservations/new?restaurant=931" target="_blank" rel="noopener">Κράτηση τραπεζιού online</a>
+          <a class="btn btn-red en" href="https://www.i-host.gr/reservations/new?lang=eng&restaurant=931" target="_blank" rel="noopener">Book a table online</a>
+        </div>
+        <div>
+          <h3><span class="el">Τηλέφωνο για κρατήσεις</span><span class="en">Phone for bookings</span></h3>
+          <div class="copyrow"><a class="big" href="tel:+35725101251" style="text-decoration:none">+357 25 101251</a><button type="button" class="copy" id="copy-phone" data-copy="+357 25 101251"><span class="el">Αντιγραφή</span><span class="en">Copy</span></button></div>
+        </div>
+        <div>
+          <h3>Email</h3>
+          <div class="copyrow"><span class="big" style="font-size:1.25rem">mostrameze@gmail.com</span><button type="button" class="copy" id="copy-mail" data-copy="mostrameze@gmail.com"><span class="el">Αντιγραφή</span><span class="en">Copy</span></button></div>
+        </div>
+        <div>
+          <h3><span class="el">Ακολουθήστε μας</span><span class="en">Follow us</span></h3>
+          <div class="links">
+            <a href="https://www.instagram.com/mostra_meze" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.facebook.com/@Mostratsipouradiko/" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.tiktok.com/@mostra_meze" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="eyebrow" style="margin-bottom:14px"><span class="el">Ωράριο</span><span class="en">Opening hours</span></h3>
+        <div class="hours" id="hours"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Mostra Meze Tavern · <span class="el">Σαριπόλου 41, Λεμεσός</span><span class="en">Saripolou 41, Limassol</span></span>
+    <span>+357 25 101251</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var stored=null;
+  try{stored=localStorage.getItem('mostra-lang')}catch(e){}
+  var lang=stored||((navigator.language||'').toLowerCase().indexOf('el')===0?'el':'en');
+  var days={
+    el:['Κυριακή','Δευτέρα','Τρίτη','Τετάρτη','Πέμπτη','Παρασκευή','Σάββατο'],
+    en:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+  };
+  var t={
+    el:{closed:'Κλειστά',open:'Ανοιχτά τώρα · κλείνουμε 23:00',today:'Ανοίγουμε σήμερα 12:30',next:'Ανοίγουμε {d} 12:30'},
+    en:{closed:'Closed',open:'Open now · until 23:00',today:'Opens today at 12:30',next:'Opens {d} at 12:30'}
+  };
+  function nicosiaNow(){
+    try{
+      var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Nicosia',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+      var o={};p.forEach(function(x){o[x.type]=x.value});
+      var wd=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(o.weekday);
+      return {day:wd,mins:(+o.hour)*60+(+o.minute)};
+    }catch(e){var d=new Date();return {day:d.getDay(),mins:d.getHours()*60+d.getMinutes()}}
+  }
+  function render(){
+    root.setAttribute('data-lang',lang);
+    root.lang=lang;
+    document.getElementById('lang-el').setAttribute('aria-pressed',lang==='el');
+    document.getElementById('lang-en').setAttribute('aria-pressed',lang==='en');
+    var now=nicosiaNow(), L=t[lang];
+    // hours table, Monday first
+    var order=[1,2,3,4,5,6,0], html='';
+    order.forEach(function(d){
+      var closed=d===1;
+      html+='<div class="'+(closed?'closed ':'')+(d===now.day?'today':'')+'"><span>'+days[lang][d]+'</span><span>'+(closed?L.closed:'12:30 – 23:00')+'</span></div>';
+    });
+    document.getElementById('hours').innerHTML=html;
+    // live status
+    var s=document.getElementById('status'), txt;
+    var openDay=now.day!==1;
+    if(openDay&&now.mins>=750&&now.mins<1380){txt=L.open;s.classList.add('open')}
+    else{
+      s.classList.remove('open');
+      if(openDay&&now.mins<750){txt=L.today}
+      else{var n=(now.day+1)%7;if(n===1)n=2;txt=L.next.replace('{d}',days[lang][n])}
+    }
+    document.getElementById('status-text').textContent=txt;
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.addEventListener('click',function(){lang=b.dataset.set;try{localStorage.setItem('mostra-lang',lang)}catch(e){}render()});
+  });
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var v=b.dataset.copy, label=b.innerHTML;
+      function done(){b.textContent=lang==='el'?'Αντιγράφηκε':'Copied';setTimeout(function(){b.innerHTML=label},1600)}
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(v).then(done,function(){selectText(b.previousElementSibling)});
+      }else{selectText(b.previousElementSibling)}
+    });
+  });
+  function selectText(el){try{var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}catch(e){}}
+  render();
+  setInterval(render,60000);
+  // reels: play only while on screen; respect reduced motion
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vids=document.querySelectorAll('.strip video');
+  if(reduce||!('IntersectionObserver' in window)){vids.forEach(function(v){v.controls=true})}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      var v=e.target;
+      if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){v.controls=true})}else{v.pause()}
+    })},{threshold:.5});
+    vids.forEach(function(v){io.observe(v)});
+  }
+})();
+</script>
+</body>
+</html>
