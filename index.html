@@ -115,12 +115,12 @@ h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;text-wrap:b
 section{padding-block:clamp(64px,9vw,104px)}
 .eyebrow{font:600 .76rem var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin:0 0 12px}
 h2{font-size:clamp(2.1rem,5vw,3.3rem);margin-bottom:18px}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,80px);align-items:start}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,80px);align-items:stretch}
 .about p{margin:0 0 16px;color:var(--ink-soft);max-width:36em}
-.about figure{margin:0;display:grid;gap:18px}
-.about figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);box-shadow:0 24px 50px -30px rgba(40,25,10,.6)}
-.about .pull{font-family:var(--display);font-style:italic;font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.35;color:var(--ink);border-left:3px solid var(--red);padding-left:20px;margin:0}
-@media (max-width:760px){.about{grid-template-columns:1fr}}
+.about figure{margin:0;position:relative;min-height:320px;border-radius:var(--r);overflow:hidden;box-shadow:0 24px 50px -30px rgba(40,25,10,.6)}
+.about figure picture,.about figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+.about .pull{font-family:var(--display);font-style:italic;font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.35;color:var(--ink);border-left:3px solid var(--red);padding-left:20px;margin:28px 0 0}
+@media (max-width:760px){.about{grid-template-columns:1fr}.about figure{min-height:0;aspect-ratio:4/3;max-width:100%}}
 
 /* menu: written on kraft paper */
 .menu{background:var(--paper);background-image:repeating-linear-gradient(0deg,transparent 0 3px,rgba(120,80,40,.035) 3px 4px)}
@@ -235,11 +235,11 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
         <p class="en">At Mostra the food comes in small plates, one after another, for the whole table. Order a few meze, a carafe of tsipouro or wine, and keep going for as long as the conversation lasts.</p>
         <p class="el">Έχουμε επιλογές με θαλασσινά, κρέας, χορτοφαγικές και vegan, ώστε να βρίσκει κάτι ο καθένας.</p>
         <p class="en">There are seafood, meat, vegetarian and vegan dishes, so everyone at the table finds something.</p>
+        <blockquote class="pull el">«Λίγο απ’ όλα, για όλους, και μετά άλλη μια γύρα.»</blockquote>
+        <blockquote class="pull en">“A little of everything, for everyone, then one more round.”</blockquote>
       </div>
       <figure>
         <picture><source srcset="img/meze-spread.webp" type="image/webp"><img src="img/meze-spread.jpg" alt="Μεζέδες σε χάρτινο τραπεζομάντηλο του Mostra: φάβα, μελιτζανοσαλάτα, ταραμάς, χταπόδι και σαγανάκι σε πήλινο" width="1000" height="1230" loading="lazy"></picture>
-        <blockquote class="pull el">«Λίγο απ’ όλα, για όλους, και μετά άλλη μια γύρα.»</blockquote>
-        <blockquote class="pull en">“A little of everything, for everyone, then one more round.”</blockquote>
       </figure>
     </div>
   </section>
