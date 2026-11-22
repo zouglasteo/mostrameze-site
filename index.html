@@ -162,6 +162,8 @@ h2{font-size:clamp(2.1rem,5vw,3.3rem);margin-bottom:18px}
 .hours{border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
 .hours div{display:flex;justify-content:space-between;padding:10px 16px;font-size:.95rem;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
 .hours div:last-child{border-bottom:0}
+.map{margin:18px 0 0}
+.map iframe{display:block;width:100%;max-width:100%;height:240px;border:1px solid var(--rule);border-radius:var(--r);background:var(--paper)}
 .hours .closed span:last-child{color:var(--red);font-weight:500}
 .hours .today{background:var(--wall);color:var(--on-wall);font-weight:600}
 .hours .today.closed span:last-child{color:var(--on-wall)}
@@ -399,6 +401,9 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
       <div>
         <h3 class="eyebrow" style="margin-bottom:14px"><span class="el">Ωράριο</span><span class="en">Opening hours</span></h3>
         <div class="hours" id="hours"></div>
+        <figure class="map">
+          <iframe id="map" title="Χάρτης: Mostra Meze Tavern, Σαριπόλου 41, Λεμεσός" src="https://maps.google.com/maps?q=Mostra%20Meze%20Tavern%2C%20Saripolou%2041%2C%20Limassol&amp;z=17&amp;hl=el&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </figure>
       </div>
     </div>
   </section>
@@ -435,6 +440,8 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
   }
   function render(){
     root.setAttribute('data-lang',lang);
+    var mp=document.getElementById('map');
+    if(mp){var want=mp.src.replace(/hl=(el|en)/,'hl='+lang);if(want!==mp.src)mp.src=want;mp.title=lang==='el'?'Χάρτης: Mostra Meze Tavern, Σαριπόλου 41, Λεμεσός':'Map: Mostra Meze Tavern, Saripolou 41, Limassol';}
     root.lang=lang;
     document.getElementById('lang-el').setAttribute('aria-pressed',lang==='el');
     document.getElementById('lang-en').setAttribute('aria-pressed',lang==='en');
