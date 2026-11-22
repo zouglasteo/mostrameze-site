@@ -124,19 +124,26 @@ h2{font-size:clamp(2.1rem,5vw,3.3rem);margin-bottom:18px}
 
 /* menu: written on kraft paper */
 .menu{background:var(--paper);background-image:repeating-linear-gradient(0deg,transparent 0 3px,rgba(120,80,40,.035) 3px 4px)}
-.menu-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
-.menu-head p{margin:0;color:var(--ink-soft);max-width:30em}
-.board{background:var(--paper-2);border-radius:var(--r);padding:clamp(22px,4vw,44px);box-shadow:0 18px 40px -26px rgba(40,25,10,.5);display:grid;grid-template-columns:1fr 1fr;gap:8px 56px}
-@media (max-width:760px){.board{grid-template-columns:1fr}}
-.item{padding-block:18px;border-bottom:1px dashed var(--rule);min-width:0}
-.item .row{display:flex;align-items:baseline;gap:10px}
-.item h3{font-size:1.4rem}
-.item .dots{flex:1;border-bottom:2px dotted var(--rule);transform:translateY(-5px);min-width:20px}
-.item .price{font-family:var(--display);font-weight:600;font-size:1.3rem;font-variant-numeric:tabular-nums;white-space:nowrap}
-.item p{margin:6px 0 8px;color:var(--ink-soft);font-size:.97rem}
-.tag{display:inline-block;font:600 .68rem var(--body);letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--rule);color:var(--ink-soft)}
-.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;align-items:center;font-size:.88rem;color:var(--ink-soft)}
-.menu .more{margin-top:30px;display:flex;justify-content:center}
+.menu-head{display:flex;justify-content:space-between;align-items:end;gap:18px 32px;flex-wrap:wrap;margin-bottom:30px}
+.menu-head h2{margin-bottom:10px}
+.menu-head p{margin:0;color:var(--ink-soft);max-width:34em}
+.menu-head .btn{flex-shrink:0}
+.fav-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+@media (max-width:1000px){.fav-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.fav-grid{grid-template-columns:minmax(0,1fr);gap:12px}}
+.fav{position:relative;background:var(--paper-2);border-radius:var(--r);padding:26px 24px 20px;display:flex;flex-direction:column;gap:10px;min-width:0;
+  box-shadow:0 18px 36px -26px rgba(40,25,10,.55);transition:transform .3s,box-shadow .3s}
+.fav::before{content:"";position:absolute;inset:7px;border:1px dashed var(--rule);border-radius:10px;pointer-events:none}
+.fav:hover{transform:translateY(-4px);box-shadow:0 26px 44px -26px rgba(40,25,10,.6)}
+@media (prefers-reduced-motion:reduce){.fav,.fav:hover{transition:none;transform:none}}
+.fav .kind{display:inline-flex;align-items:center;gap:7px;font:600 .7rem var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.fav .kind svg{width:18px;height:18px;flex-shrink:0}
+.fav h3{font-size:1.5rem;line-height:1.15}
+.fav p{margin:0;color:var(--ink-soft);font-size:.96rem;flex:1}
+.fav .price{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:6px;padding-top:12px;border-top:1px dashed var(--rule);
+  font-family:var(--display);font-weight:600;font-size:1.55rem;font-variant-numeric:tabular-nums}
+.fav .price small{font:500 .78rem var(--body);color:var(--ink-soft);letter-spacing:.02em}
+@media (max-width:560px){.fav{padding:22px 20px 16px}.fav h3{font-size:1.35rem}.fav .price{font-size:1.4rem}}
 .btn-ink{background:var(--ink);color:var(--paper-2)}
 
 /* visit */
@@ -251,38 +258,40 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
           <p class="eyebrow"><span class="el">Από την κουζίνα</span><span class="en">From the kitchen</span></p>
           <h2 class="el">Οι αγαπημένοι μας μεζέδες</h2>
           <h2 class="en">House favourites</h2>
+          <p class="el">Τέσσερα από τα πιάτα που παραγγέλνονται συχνότερα.</p>
+          <p class="en">Four of the dishes our guests order most.</p>
         </div>
-        <p class="el">Τέσσερα από τα πιάτα που παραγγέλνονται συχνότερα. Δείτε όλο το μενού με τιμές, μαζί με τα τσίπουρα και τα ούζα μας.</p>
-        <p class="en">Four of the dishes our guests order most. See the full menu with prices, plus our tsipouro and ouzo list.</p>
+        <a class="btn btn-ink" href="/menu"><span class="el">Όλο το μενού →</span><span class="en">Full menu →</span></a>
       </div>
-      <div class="board">
-        <div class="item">
-          <div class="row"><h3><span class="el">Γαρίδες σαγανάκι</span><span class="en">Shrimp saganaki</span></h3><span class="dots"></span><span class="price">€11.50</span></div>
+      <div class="fav-grid">
+        <article class="fav">
+          <span class="kind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c3-4.5 8-6 12-4 2 1 3.5 2.5 4.5 4-1 1.5-2.5 3-4.5 4-4 2-9 .5-12-4z"/><path d="M19.5 12 22 9v6z"/><circle cx="14.5" cy="10.8" r=".6" fill="currentColor"/></svg><span class="el">Θαλασσινά</span><span class="en">Seafood</span></span>
+          <h3><span class="el">Γαρίδες σαγανάκι</span><span class="en">Shrimp saganaki</span></h3>
           <p class="el">Γαρίδες με σάλτσα ντομάτας, πιπεριές και φέτα.</p>
           <p class="en">Shrimp cooked in tomato sauce with peppers and feta.</p>
-          <span class="tag"><span class="el">Θαλασσινά</span><span class="en">Seafood</span></span>
-        </div>
-        <div class="item">
-          <div class="row"><h3><span class="el">Χταπόδι σχάρας</span><span class="en">Grilled octopus</span></h3><span class="dots"></span><span class="price">€12.50</span></div>
+          <div class="price"><small><span class="el">μερίδα</span><span class="en">portion</span></small><span>€11,50</span></div>
+        </article>
+        <article class="fav">
+          <span class="kind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c3-4.5 8-6 12-4 2 1 3.5 2.5 4.5 4-1 1.5-2.5 3-4.5 4-4 2-9 .5-12-4z"/><path d="M19.5 12 22 9v6z"/><circle cx="14.5" cy="10.8" r=".6" fill="currentColor"/></svg><span class="el">Θαλασσινά</span><span class="en">Seafood</span></span>
+          <h3><span class="el">Χταπόδι σχάρας</span><span class="en">Grilled octopus</span></h3>
           <p class="el">Με φάβα και καραμελωμένα κρεμμύδια.</p>
           <p class="en">Served with fava and caramelised onions.</p>
-          <span class="tag"><span class="el">Θαλασσινά</span><span class="en">Seafood</span></span>
-        </div>
-        <div class="item">
-          <div class="row"><h3><span class="el">Μπιφτέκι γεμιστό</span><span class="en">Stuffed pork burger</span></h3><span class="dots"></span><span class="price">€10.50</span></div>
+          <div class="price"><small><span class="el">μερίδα</span><span class="en">portion</span></small><span>€12,50</span></div>
+        </article>
+        <article class="fav">
+          <span class="kind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c.5 3.5 4.5 5.5 4.5 10a4.5 4.5 0 0 1-9 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 3 0-3 .5-6 .5-8.5z"/><path d="M4 21h16"/></svg><span class="el">Σχάρα</span><span class="en">From the grill</span></span>
+          <h3><span class="el">Μπιφτέκι γεμιστό</span><span class="en">Stuffed pork burger</span></h3>
           <p class="el">Χοιρινό μπιφτέκι σχάρας, γεμιστό με φέτα και ντομάτα.</p>
           <p class="en">Grilled pork burger stuffed with feta and tomato.</p>
-          <span class="tag"><span class="el">Κρεατικά</span><span class="en">Meat</span></span>
-        </div>
-        <div class="item">
-          <div class="row"><h3><span class="el">Παϊδάκια αρνίσια</span><span class="en">Lamb chops</span></h3><span class="dots"></span><span class="price">€16.00</span></div>
+          <div class="price"><small><span class="el">μερίδα</span><span class="en">portion</span></small><span>€10,50</span></div>
+        </article>
+        <article class="fav">
+          <span class="kind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c.5 3.5 4.5 5.5 4.5 10a4.5 4.5 0 0 1-9 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 3 0-3 .5-6 .5-8.5z"/><path d="M4 21h16"/></svg><span class="el">Σχάρα</span><span class="en">From the grill</span></span>
+          <h3><span class="el">Παϊδάκια αρνίσια</span><span class="en">Lamb chops</span></h3>
           <p class="el">Αρνίσια παϊδάκια στη σχάρα.</p>
           <p class="en">Lamb chops from the grill.</p>
-          <span class="tag"><span class="el">Κρεατικά</span><span class="en">Meat</span></span>
-        </div>
-      </div>
-      <div class="more">
-        <a class="btn btn-ink" href="/menu"><span class="el">Όλο το μενού →</span><span class="en">Full menu →</span></a>
+          <div class="price"><small><span class="el">μερίδα</span><span class="en">portion</span></small><span>€16,00</span></div>
+        </article>
       </div>
     </div>
   </section>
