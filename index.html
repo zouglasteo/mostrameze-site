@@ -10,7 +10,7 @@
 <meta property="og:type" content="restaurant">
 <title>Mostra Meze Tavern</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Mostra Meze Tavern – Greek meze tavern at Saripolou 41, Limassol. 50+ dishes to share. Tuesday–Sunday 12:30–23:00. Tel. 25 101251.">
+<meta name="description" content="Mostra Meze Tavern – Greek meze tavern at Saripolou 41, Limassol. Meze to share. Tuesday–Sunday 12:30–23:00. Tel. 25 101251.">
 <meta property="og:title" content="Mostra Meze Tavern – Limassol">
 <meta property="og:image" content="https://mostrameze.com/img/terrace.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,7 +93,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;text-wrap:b
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
 .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(9,40,38,.78) 0%,rgba(14,12,9,.45) 45%,rgba(14,12,9,.82) 100%)}
 .hero h1 .logo{width:min(560px,100%);color:#fff8ee}
-.hero .wrap{position:relative;z-index:2;padding-block:clamp(56px,10vw,120px) clamp(48px,8vw,96px);display:grid;gap:28px}
+.hero .wrap{position:relative;z-index:2;padding-block:clamp(64px,11vw,132px) clamp(56px,9vw,112px);display:grid;gap:22px}
 .status{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.88rem;letter-spacing:.04em;background:rgba(0,0,0,.18);padding:7px 14px 7px 12px;border-radius:999px;width:fit-content}
 .status i{width:9px;height:9px;border-radius:50%;background:#f0b44c}
 .status.open i{background:#7be0a6;box-shadow:0 0 0 4px rgba(123,224,166,.25)}
@@ -113,7 +113,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;text-wrap:b
 @media (max-width:560px){.facts{grid-template-columns:1fr}}
 
 /* sections */
-section{padding-block:clamp(64px,9vw,104px)}
+section{padding-block:clamp(52px,7vw,88px)}
 .eyebrow{font:600 .76rem var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin:0 0 12px}
 h2{font-size:clamp(2.1rem,5vw,3.3rem);margin-bottom:18px}
 .about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,80px);align-items:stretch}
@@ -144,7 +144,7 @@ h2{font-size:clamp(2.1rem,5vw,3.3rem);margin-bottom:18px}
 .fav .price{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:6px;padding-top:12px;border-top:1px dashed var(--rule);
   font-family:var(--display);font-weight:600;font-size:1.55rem;font-variant-numeric:tabular-nums}
 .fav .price small{font:500 .78rem var(--body);color:var(--ink-soft);letter-spacing:.02em}
-@media (max-width:560px){.fav{padding:22px 20px 16px}.fav h3{font-size:1.35rem}.fav .price{font-size:1.4rem}}
+@media (max-width:560px){.fav{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:18px 20px}.fav .kind{grid-column:1/-1;grid-row:1}.fav h3{grid-column:1;grid-row:2;font-size:1.3rem;align-self:center}.fav .price{grid-column:2;grid-row:2;align-self:center;margin:0;padding:0;border:0;font-size:1.3rem}.fav .price small{display:none}.fav p{grid-column:1/-1;grid-row:3}}
 .btn-ink{background:var(--ink);color:var(--paper-2)}
 
 /* visit */
@@ -166,20 +166,18 @@ h2{font-size:clamp(2.1rem,5vw,3.3rem);margin-bottom:18px}
 .hours .today.closed span:last-child{color:var(--on-wall)}
 
 /* gallery */
-.gallery-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.gallery-head{display:flex;justify-content:space-between;align-items:end;gap:12px 20px;flex-wrap:wrap;margin-bottom:24px}
 .gallery-head p{margin:0;color:var(--ink-soft);max-width:30em}
-.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.strip+.strip{margin-top:16px}
-.strip video,.strip img{width:100%;height:100%;object-fit:cover;border-radius:var(--r);display:block;background:var(--paper)}
-.strip .reel{aspect-ratio:9/15}
-.strip .shot{aspect-ratio:4/5}
-.strip figure{margin:0;min-width:0}
-@media (max-width:700px){
-  .scroller{overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));scrollbar-width:none}
+.strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.strip figure{margin:0;min-width:0;aspect-ratio:3/4;max-width:100%;border-radius:12px;overflow:hidden;background:var(--paper)}
+.strip video,.strip picture,.strip img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:900px){
+  .scroller{overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));scroll-padding-inline:max(16px,env(safe-area-inset-left,0px));scrollbar-width:none}
   .scroller::-webkit-scrollbar{display:none}
-  .strip{grid-template-columns:repeat(3,72%);width:max-content;min-width:100%}
-  .strip figure{scroll-snap-align:center}
+  .strip{grid-template-columns:repeat(6,min(40vw,240px));width:max-content}
+  .strip figure{scroll-snap-align:start}
 }
+@media (max-width:560px){.strip{grid-template-columns:repeat(6,58vw)}}
 .reviews{background:var(--wall);color:var(--on-wall);padding-block:clamp(48px,7vw,80px)}
 .reviews .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
 .reviews h2{margin-bottom:8px}
@@ -223,18 +221,12 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
         <em class="el">Ελληνικό μεζεδοπωλείο στην πλατεία Σαριπόλου</em>
         <em class="en">Greek meze tavern on Saripolou Square</em>
       </h1>
-      <p class="lede el">Πάνω από 50 μεζέδες για να μοιραστείτε, ένα τσίπουρο στο τραπέζι και η φασαρία της παλιάς Λεμεσού δίπλα στην Αγορά. Για μεσημεριανό ή βραδινό, από τις 12:30.</p>
-      <p class="lede en">Over 50 small dishes to share, tsipouro on the table, and the buzz of old Limassol right by the Agora. For lunch or dinner, from 12:30.</p>
+      <p class="lede el">Μεζέδες για να μοιραστείτε και τσίπουρο στο τραπέζι, δίπλα στην Αγορά της Λεμεσού.</p>
+      <p class="lede en">Meze to share and tsipouro on the table, next to the Limassol Agora.</p>
       <div class="ctas">
         <a class="btn btn-red el" href="https://www.i-host.gr/reservations/new?restaurant=931" target="_blank" rel="noopener">Κράτηση τραπεζιού</a>
         <a class="btn btn-red en" href="https://www.i-host.gr/reservations/new?lang=eng&restaurant=931" target="_blank" rel="noopener">Book a table</a>
-        <a class="btn btn-line" href="tel:+35725101251">☎ 25 101251</a>
         <a class="btn btn-line" href="/menu"><span class="el">Δείτε το μενού</span><span class="en">See the menu</span></a>
-      </div>
-      <div class="facts">
-        <div><b>50+</b><span class="el">μεζέδες στο μενού</span><span class="en">dishes on the menu</span></div>
-        <div><b>12:30</b><span class="el">ανοίγουμε Τρίτη–Κυριακή</span><span class="en">open Tuesday–Sunday</span></div>
-        <div><b>Σαριπόλου 41</b><span class="el">δίπλα στην Αγορά</span><span class="en">next to the Agora</span></div>
       </div>
     </div>
   </div>
@@ -247,8 +239,6 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
         <h2 class="en">A tavern made for long evenings</h2>
         <p class="el">Στο Mostra το φαγητό έρχεται σε μικρά πιάτα, το ένα μετά το άλλο, για όλο το τραπέζι. Παραγγέλνετε λίγους μεζέδες, ένα καραφάκι, και συνεχίζετε όσο κρατάει η κουβέντα.</p>
         <p class="en">At Mostra the food comes in small plates, one after another, for the whole table. Order a few meze, a carafe of tsipouro or wine, and keep going for as long as the conversation lasts.</p>
-        <p class="el">Έχουμε επιλογές με θαλασσινά, κρέας, χορτοφαγικές και vegan, ώστε να βρίσκει κάτι ο καθένας.</p>
-        <p class="en">There are seafood, meat, vegetarian and vegan dishes, so everyone at the table finds something.</p>
         <blockquote class="pull el">«Λίγο απ’ όλα, για όλους, και μετά άλλη μια γύρα.»</blockquote>
         <blockquote class="pull en">“A little of everything, for everyone, then one more round.”</blockquote>
       </div>
@@ -317,14 +307,10 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
       <div class="scroller">
         <div class="strip">
           <figure class="reel"><video id="reel-1" src="video/reel-1.mp4" poster="video/reel-1.jpg" muted loop playsinline preload="none" aria-label="Γαρίδες σχάρας και σαγανάκι στο Mostra"></video></figure>
-          <figure class="reel"><video id="reel-2" src="video/reel-4.mp4" poster="video/reel-4.jpg" muted loop playsinline preload="none" aria-label="Σερβίρισμα μεζέδων στην αυλή του Mostra"></video></figure>
-          <figure class="reel"><video id="reel-3" src="video/reel-3.mp4" poster="video/reel-3.jpg" muted loop playsinline preload="none" aria-label="Μεζέδες, πατάτες και κοτόπουλο με πιπεριές στο Mostra"></video></figure>
-        </div>
-      </div>
-      <div class="scroller">
-        <div class="strip">
           <figure class="shot"><picture><source srcset="img/serving.webp" type="image/webp"><img src="img/serving.jpg" alt="Σερβίρισμα μελιτζανοσαλάτας σε τραπέζι με ταραμά, χταποδοσαλάτα και σαγανάκι" width="900" height="1105" loading="lazy"></picture></figure>
+          <figure class="reel"><video id="reel-2" src="video/reel-4.mp4" poster="video/reel-4.jpg" muted loop playsinline preload="none" aria-label="Σερβίρισμα μεζέδων στην αυλή του Mostra"></video></figure>
           <figure class="shot"><picture><source srcset="img/octopus-fava.webp" type="image/webp"><img src="img/octopus-fava.jpg" alt="Χταπόδι με φάβα, σαρδέλες σχάρας και τηγανάκι με φέτα" width="900" height="1115" loading="lazy"></picture></figure>
+          <figure class="reel"><video id="reel-3" src="video/reel-3.mp4" poster="video/reel-3.jpg" muted loop playsinline preload="none" aria-label="Μεζέδες, πατάτες και κοτόπουλο με πιπεριές στο Mostra"></video></figure>
           <figure class="shot"><picture><source srcset="img/sardines.webp" type="image/webp"><img src="img/sardines.jpg" alt="Σαρδέλες σχάρας ανάμεσα σε μεζέδες" width="900" height="1113" loading="lazy"></picture></figure>
         </div>
       </div>
