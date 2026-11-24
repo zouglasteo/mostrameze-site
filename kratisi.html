@@ -350,7 +350,9 @@ $('cancelForm').addEventListener('submit',function(e){
   $('cGo').disabled=true;
   rpc('online_cancel',{p_ref:ref,p_phone:ph}).then(function(r){
     $('cGo').disabled=false;
-    if(r&&r.ok){cMsg(r.already?L().cAlready:L().cOk.replace('{d}',longDate(r.date)).replace('{t}',r.time),true);return}
+    if(r&&r.ok){cMsg(r.already?L().cAlready:L().cOk.replace('{d}',longDate(r.date)).replace('{t}',r.time),true);
+      if(!r.already)fetch(SB+'/functions/v1/booking-email',{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json'},body:JSON.stringify({ref:ref,type:'cancel'})}).catch(function(){});
+      return}
     cMsg(r&&r.error==='past'?L().cPast:L().cNot);
   }).catch(function(){$('cGo').disabled=false;cMsg(L().err.net)});
 });
