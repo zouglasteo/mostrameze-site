@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Κράτηση τραπεζιού · Mostra Meze Tavern</title>
+<meta name="description" content="Κλείστε τραπέζι online στο Mostra Meze Tavern, Σαριπόλου 41, Λεμεσός. Book a table online at Mostra Meze Tavern, Limassol.">
+<link rel="canonical" href="https://mostrameze.com/kratisi">
+<meta property="og:title" content="Κράτηση τραπεζιού · Mostra Meze Tavern">
+<meta property="og:image" content="https://mostrameze.com/img/terrace.jpg">
+<meta name="theme-color" content="#0e6b67">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,600;7..72,800&family=Commissioner:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: turquoise wall header, then one kraft-paper "booking slip" with four numbered steps (the order matters), confirmation replaces the slip. */
+:root{
+  --wall:#0e6b67;--wall-deep:#09524f;--on-wall:#f3fbf9;
+  --paper:#e9d7b6;--paper-2:#f6ecda;--ink:#2a2118;--ink-soft:#6a5843;--red:#b8382a;--rule:rgba(42,33,24,.2);--ok:#2f7d4f;
+  --display:'Literata',Georgia,'Times New Roman',serif;--body:'Commissioner',system-ui,-apple-system,'Segoe UI',sans-serif;--r:14px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{--wall:#0b4f4c;--wall-deep:#073b39;--on-wall:#e8f6f3;--paper:#1c1813;--paper-2:#2b241c;--ink:#f0e4cf;--ink-soft:#bfae94;--red:#e0705f;--rule:rgba(240,228,207,.18);--ok:#6cc48f;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.02rem/1.55 var(--body);-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:6px}
+button,input,textarea{font:inherit;color:inherit}
+[data-lang="el"] .en,[data-lang="en"] .el{display:none!important}
+.wrap{max-width:720px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+
+header{background:var(--wall);color:var(--on-wall);padding-top:env(safe-area-inset-top)}
+header .wrap{display:flex;align-items:center;gap:14px;padding-block:14px}
+.logo{display:block;width:140px;aspect-ratio:1060/228;background:currentColor;-webkit-mask:url(/img/logo.png) center/contain no-repeat;mask:url(/img/logo.png) center/contain no-repeat}
+.home{margin-right:auto;text-decoration:none}
+.lang{display:flex;border:1px solid rgba(255,255,255,.35);border-radius:999px;overflow:hidden}
+.lang button{all:unset;cursor:pointer;font:600 .74rem var(--body);letter-spacing:.08em;padding:6px 11px;color:var(--on-wall)}
+.lang button[aria-pressed="true"]{background:var(--on-wall);color:var(--wall-deep)}
+.hero{background:var(--wall);color:var(--on-wall)}
+.hero .wrap{padding-block:4px 30px}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.1rem,7vw,3.4rem);line-height:1.05;margin:0 0 8px}
+.hero p{margin:0;opacity:.9}
+
+main{padding-block:24px 48px}
+.slip{background:var(--paper-2);border-radius:var(--r);padding:clamp(18px,4vw,30px);box-shadow:0 18px 40px -30px rgba(40,25,10,.6);position:relative}
+.slip::before{content:"";position:absolute;inset:7px;border:1px dashed var(--rule);border-radius:10px;pointer-events:none}
+.step{display:grid;gap:12px;padding-block:18px;border-bottom:1px dashed var(--rule)}
+.step:first-child{padding-top:4px}
+.step:last-of-type{border-bottom:0}
+.step h2{margin:0;display:flex;align-items:center;gap:10px;font:600 .78rem var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+.step h2 b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--wall);color:var(--on-wall);font-size:.78rem;letter-spacing:0}
+.hint{margin:0;font-size:.88rem;color:var(--ink-soft)}
+
+.ppl{display:flex;align-items:center;gap:14px}
+.ppl button{width:48px;height:48px;border-radius:50%;border:1px solid var(--rule);background:none;font-size:1.4rem;font-weight:700;cursor:pointer}
+.ppl button:disabled{opacity:.35;cursor:default}
+.ppl output{font-family:var(--display);font-size:2rem;font-weight:800;min-width:2ch;text-align:center;font-variant-numeric:tabular-nums}
+
+.days{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-inline:-4px;padding-inline:4px}
+.days::-webkit-scrollbar{display:none}
+.day{flex-shrink:0;width:64px;border:1px solid var(--rule);background:none;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;display:grid;gap:1px}
+.day small{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft)}
+.day b{font-family:var(--display);font-size:1.35rem;line-height:1.1}
+.day span{font-size:.72rem;color:var(--ink-soft)}
+.day[aria-pressed="true"]{background:var(--wall);border-color:var(--wall);color:var(--on-wall)}
+.day[aria-pressed="true"] small,.day[aria-pressed="true"] span{color:var(--on-wall)}
+.day:disabled{opacity:.4;cursor:default;text-decoration:line-through}
+.other{display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--ink-soft)}
+.other input{border:1px solid var(--rule);background:none;border-radius:10px;padding:7px 10px}
+
+.slots{display:grid;gap:12px}
+.slots h3{margin:0;font:600 .74rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:8px}
+.time{border:1px solid var(--rule);background:none;border-radius:10px;padding:10px 4px;font-weight:600;font-variant-numeric:tabular-nums;cursor:pointer}
+.time[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.time:disabled{opacity:.3;cursor:default;text-decoration:line-through}
+.msg{margin:0;padding:12px 14px;border-radius:10px;background:rgba(184,56,42,.1);color:var(--red);font-weight:600;font-size:.92rem}
+.msg.soft{background:rgba(14,107,103,.1);color:var(--ink);font-weight:500}
+
+.fields{display:grid;gap:12px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media (max-width:560px){.fields{grid-template-columns:minmax(0,1fr)}}
+.fields .full{grid-column:1/-1}
+label.f{display:grid;gap:5px;font-size:.84rem;font-weight:600;color:var(--ink-soft);min-width:0}
+label.f input,label.f textarea{width:100%;border:1px solid var(--rule);background:var(--paper);border-radius:10px;padding:12px;font-size:1rem;color:var(--ink);font-weight:400}
+label.f textarea{min-height:64px;resize:vertical}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;color:var(--ink-soft)}
+.consent input{width:20px;height:20px;margin-top:2px;accent-color:var(--wall);flex-shrink:0}
+
+.summary{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px}
+.summary p{margin:0;font-weight:600}
+.go{border:0;border-radius:999px;background:var(--red);color:#fff;font-weight:700;font-size:1.02rem;padding:15px 28px;cursor:pointer}
+.go:disabled{opacity:.45;cursor:default}
+
+.done{text-align:center;display:grid;gap:14px;justify-items:center}
+.done .tick{width:62px;height:62px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:2rem}
+.done h2{font-family:var(--display);font-size:1.9rem;margin:0}
+.done dl{display:grid;grid-template-columns:auto auto;gap:6px 22px;margin:6px 0;text-align:left}
+.done dt{color:var(--ink-soft)}
+.done dd{margin:0;font-weight:600}
+.code{font-family:ui-monospace,Menlo,monospace;letter-spacing:.2em;font-size:1.2rem}
+.done .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.ghost{border:1.5px solid var(--rule);background:none;border-radius:999px;padding:11px 18px;font-weight:600;cursor:pointer;text-decoration:none}
+
+.cancel{margin-top:22px}
+.cancel details{background:var(--paper-2);border-radius:var(--r);padding:14px 18px}
+.cancel summary{cursor:pointer;font-weight:600}
+.cancel form{display:grid;gap:12px;margin-top:12px}
+.cancel .fields{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media (max-width:460px){.cancel .fields{grid-template-columns:minmax(0,1fr)}}
+.big9{font-size:.9rem;color:var(--ink-soft);margin:0}
+footer{background:var(--wall-deep);color:var(--on-wall)}
+footer .wrap{padding-block:22px calc(22px + env(safe-area-inset-bottom));display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.88rem}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="home" href="/" aria-label="Mostra Meze Tavern"><span class="logo"></span></a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-el" data-set="el" aria-pressed="true">ΕΛ</button>
+      <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap">
+    <h1><span class="el">Κράτηση τραπεζιού</span><span class="en">Book a table</span></h1>
+    <p class="el">Διαλέξτε μέρα και ώρα. Η κράτηση επιβεβαιώνεται αμέσως.</p>
+    <p class="en">Choose a day and time. Your booking is confirmed straight away.</p>
+  </div>
+</section>
+
+<main class="wrap">
+  <form id="book" class="slip" novalidate>
+    <section class="step">
+      <h2><b>1</b><span class="el">Άτομα</span><span class="en">Guests</span></h2>
+      <div class="ppl">
+        <button type="button" id="pMinus" aria-label="Λιγότερα άτομα">−</button>
+        <output id="pOut" aria-live="polite">2</output>
+        <button type="button" id="pPlus" aria-label="Περισσότερα άτομα">+</button>
+      </div>
+      <p class="big9 el">Για παρέες 9 ατόμων και πάνω, καλέστε μας στο <a href="tel:+35725101251">25 101251</a>.</p>
+      <p class="big9 en">For groups of 9 or more, please call us on <a href="tel:+35725101251">+357 25 101251</a>.</p>
+    </section>
+
+    <section class="step">
+      <h2><b>2</b><span class="el">Ημέρα</span><span class="en">Day</span></h2>
+      <div class="days" id="days" role="group" aria-label="Ημέρα"></div>
+      <label class="other"><span class="el">Άλλη ημερομηνία:</span><span class="en">Another date:</span> <input type="date" id="otherDate"></label>
+    </section>
+
+    <section class="step">
+      <h2><b>3</b><span class="el">Ώρα άφιξης</span><span class="en">Arrival time</span></h2>
+      <div id="slots" class="slots" aria-live="polite"></div>
+    </section>
+
+    <section class="step">
+      <h2><b>4</b><span class="el">Τα στοιχεία σας</span><span class="en">Your details</span></h2>
+      <div class="fields">
+        <label class="f"><span class="el">Ονοματεπώνυμο</span><span class="en">Name</span><input id="name" type="text" autocomplete="name" required maxlength="80"></label>
+        <label class="f"><span class="el">Κινητό τηλέφωνο</span><span class="en">Mobile phone</span><input id="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+357 99 123456"></label>
+        <label class="f full"><span class="el">Email (για την επιβεβαίωση)</span><span class="en">Email (for your confirmation)</span><input id="email" type="email" autocomplete="email" inputmode="email" required></label>
+        <label class="f full"><span class="el">Σχόλια (προαιρετικά)</span><span class="en">Notes (optional)</span><textarea id="notes" maxlength="500" placeholder=""></textarea></label>
+        <label class="hp" aria-hidden="true">Website<input id="website" type="text" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <label class="consent"><input type="checkbox" id="consent">
+        <span class="el">Συμφωνώ να χρησιμοποιηθούν τα στοιχεία μου μόνο για αυτή την κράτηση και για να επικοινωνήσει μαζί μου το εστιατόριο αν χρειαστεί.</span>
+        <span class="en">I agree that my details are used only for this booking and so the restaurant can contact me if needed.</span></label>
+    </section>
+
+    <p class="msg" id="err" role="alert" hidden></p>
+    <div class="summary">
+      <p id="sum" aria-live="polite"></p>
+      <button type="submit" class="go" id="go" disabled><span class="el">Κλείστε τραπέζι</span><span class="en">Book table</span></button>
+    </div>
+  </form>
+
+  <section class="slip done" id="done" hidden tabindex="-1">
+    <div class="tick" aria-hidden="true">✓</div>
+    <h2><span class="el">Το τραπέζι σας κλείστηκε!</span><span class="en">Your table is booked!</span></h2>
+    <dl id="doneList"></dl>
+    <p id="mailNote" class="hint"></p>
+    <div class="row">
+      <button type="button" class="ghost" id="ics"><span class="el">Προσθήκη στο ημερολόγιο</span><span class="en">Add to calendar</span></button>
+      <a class="ghost" href="/"><span class="el">Αρχική σελίδα</span><span class="en">Home page</span></a>
+    </div>
+  </section>
+
+  <div class="cancel" id="cancel">
+    <details id="cancelBox">
+      <summary><span class="el">Θέλετε να ακυρώσετε μια κράτηση;</span><span class="en">Need to cancel a booking?</span></summary>
+      <form id="cancelForm" novalidate>
+        <div class="fields">
+          <label class="f"><span class="el">Κωδικός κράτησης</span><span class="en">Booking code</span><input id="cRef" type="text" autocomplete="off" autocapitalize="characters" maxlength="8"></label>
+          <label class="f"><span class="el">Κινητό τηλέφωνο της κράτησης</span><span class="en">Phone used for the booking</span><input id="cPhone" type="tel" inputmode="tel" autocomplete="tel"></label>
+        </div>
+        <p class="msg" id="cMsg" role="status" hidden></p>
+        <div><button type="submit" class="ghost" id="cGo"><span class="el">Ακύρωση κράτησης</span><span class="en">Cancel booking</span></button></div>
+      </form>
+    </details>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Mostra Meze Tavern · <span class="el">Σαριπόλου 41, Λεμεσός</span><span class="en">Saripolou 41, Limassol</span> · 25 101251</span>
+    <a href="/menu"><span class="el">Δείτε το μενού →</span><span class="en">See the menu →</span></a>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var SB='https://utzcnxvqshciszjvvgaj.supabase.co';
+var KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV0emNueHZxc2hjaXN6anZ2Z2FqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUyOTI0NzYsImV4cCI6MjExMDg2ODQ3Nn0.7Mr1zgIqTBgCHSFxuQcSa0RcxzJY79N1ZH4g4iFmNyo';
+var CLOSED_DOW=[1], MAXP=8, DAYS_SHOWN=14, MAX_AHEAD=60;
+var root=document.documentElement,$=function(i){return document.getElementById(i)};
+var lang='el';try{lang=localStorage.getItem('mostra-lang')||''}catch(e){}
+if(lang!=='el'&&lang!=='en')lang=(navigator.language||'').toLowerCase().indexOf('el')===0?'el':'en';
+var st={people:2,date:null,time:null,slots:null,loading:false,seq:0,last:null};
+var T={
+  el:{dow:['Κυρ','Δευ','Τρί','Τετ','Πέμ','Παρ','Σάβ'],mon:['Ιαν','Φεβ','Μαρ','Απρ','Μαΐ','Ιουν','Ιουλ','Αυγ','Σεπ','Οκτ','Νοε','Δεκ'],today:'Σήμερα',tomorrow:'Αύριο',closed:'Κλειστά',
+    lunch:'Μεσημέρι',dinner:'Βράδυ',pickDay:'Διαλέξτε πρώτα ημέρα.',loading:'Φόρτωση διαθεσιμότητας…',none:'Δεν υπάρχει διαθέσιμη ώρα για {p} άτομα αυτή τη μέρα. Δοκιμάστε άλλη μέρα ή καλέστε μας.',closedDay:'Είμαστε κλειστά αυτή τη μέρα.',
+    netErr:'Δεν φόρτωσε η διαθεσιμότητα. Ελέγξτε τη σύνδεση και δοκιμάστε ξανά.',ppl:function(n){return n+(n===1?' άτομο':' άτομα')},
+    err:{name:'Γράψτε το ονοματεπώνυμό σας.',phone:'Γράψτε ένα σωστό κινητό τηλέφωνο.',email:'Γράψτε ένα σωστό email.',consent:'Χρειάζεται η συγκατάθεσή σας για να κρατήσουμε τα στοιχεία.',full:'Αυτή η ώρα μόλις γέμισε. Διαλέξτε άλλη ώρα.',duplicate:'Έχετε ήδη κράτηση αυτή τη μέρα με αυτό το τηλέφωνο. Για αλλαγές καλέστε μας.',closed:'Οι online κρατήσεις είναι προσωρινά κλειστές. Καλέστε μας στο 25 101251.',rejected:'Η κράτηση δεν ολοκληρώθηκε. Καλέστε μας στο 25 101251.',time:'Διαλέξτε ώρα.',net:'Η κράτηση δεν στάλθηκε. Ελέγξτε τη σύνδεση και πατήστε ξανά.'},
+    dl:['Ημέρα','Ώρα','Άτομα','Όνομα','Κωδικός'],mailSent:'Σας στείλαμε email επιβεβαίωσης στο {e}.',mailNo:'Κρατήστε τον κωδικό σας. Με αυτόν και το τηλέφωνό σας μπορείτε να ακυρώσετε online.',
+    cOk:'Η κράτηση για {d} στις {t} ακυρώθηκε. Ευχαριστούμε που μας ενημερώσατε.',cAlready:'Αυτή η κράτηση είναι ήδη ακυρωμένη.',cNot:'Δεν βρέθηκε κράτηση με αυτόν τον κωδικό και τηλέφωνο.',cPast:'Η κράτηση έχει περάσει.',cNeed:'Συμπληρώστε κωδικό και τηλέφωνο.',
+    ics:'Τραπέζι στο Mostra Meze Tavern'},
+  en:{dow:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],mon:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],today:'Today',tomorrow:'Tomorrow',closed:'Closed',
+    lunch:'Lunch',dinner:'Dinner',pickDay:'Choose a day first.',loading:'Loading availability…',none:'No time is available for {p} guests on this day. Try another day or call us.',closedDay:'We are closed on this day.',
+    netErr:'Availability did not load. Check your connection and try again.',ppl:function(n){return n+(n===1?' guest':' guests')},
+    err:{name:'Please enter your name.',phone:'Please enter a valid mobile number.',email:'Please enter a valid email.',consent:'We need your consent to keep your details for the booking.',full:'This time has just filled up. Please choose another time.',duplicate:'You already have a booking on this day with this phone. Call us for changes.',closed:'Online booking is closed for now. Please call us on +357 25 101251.',rejected:'The booking was not completed. Please call us on +357 25 101251.',time:'Please choose a time.',net:'The booking was not sent. Check your connection and try again.'},
+    dl:['Day','Time','Guests','Name','Code'],mailSent:'We sent a confirmation email to {e}.',mailNo:'Keep your booking code. With it and your phone number you can cancel online.',
+    cOk:'Your booking for {d} at {t} is cancelled. Thank you for letting us know.',cAlready:'This booking is already cancelled.',cNot:'No booking found with this code and phone.',cPast:'This booking is in the past.',cNeed:'Enter your code and phone.',
+    ics:'Table at Mostra Meze Tavern'}
+};
+function L(){return T[lang]}
+function pad(n){return (n<10?'0':'')+n}
+function iso(d){return d.getUTCFullYear()+'-'+pad(d.getUTCMonth()+1)+'-'+pad(d.getUTCDate())}
+function fromIso(s){var p=s.split('-');return new Date(Date.UTC(+p[0],+p[1]-1,+p[2]))}
+function cyToday(){var p=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Nicosia',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());return p}
+function addDays(s,n){var d=fromIso(s);d.setUTCDate(d.getUTCDate()+n);return iso(d)}
+function longDate(s){var d=fromIso(s);return new Intl.DateTimeFormat(lang==='el'?'el-GR':'en-GB',{weekday:'long',day:'numeric',month:'long',timeZone:'UTC'}).format(d)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function rpc(fn,body){return fetch(SB+'/rest/v1/rpc/'+fn,{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){if(!r.ok)throw new Error('http '+r.status);return r.json()})}
+
+var today=cyToday();
+$('otherDate').min=today;$('otherDate').max=addDays(today,MAX_AHEAD);
+
+function renderDays(){
+  var h='';
+  for(var i=0;i<DAYS_SHOWN;i++){
+    var s=addDays(today,i),d=fromIso(s),closed=CLOSED_DOW.indexOf(d.getUTCDay())>=0;
+    var top=i===0?L().today:i===1?L().tomorrow:L().dow[d.getUTCDay()];
+    h+='<button type="button" class="day" data-d="'+s+'" aria-pressed="'+(st.date===s)+'"'+(closed?' disabled':'')+'><small>'+top+'</small><b>'+d.getUTCDate()+'</b><span>'+(closed?L().closed:L().mon[d.getUTCMonth()])+'</span></button>';
+  }
+  $('days').innerHTML=h;
+  if(st.date&&st.date>addDays(today,DAYS_SHOWN-1))$('otherDate').value=st.date;
+}
+function renderSlots(){
+  var box=$('slots');
+  if(!st.date){box.innerHTML='<p class="hint">'+L().pickDay+'</p>';return}
+  if(CLOSED_DOW.indexOf(fromIso(st.date).getUTCDay())>=0){box.innerHTML='<p class="msg soft">'+L().closedDay+'</p>';return}
+  if(st.loading){box.innerHTML='<p class="hint">'+L().loading+'</p>';return}
+  if(st.slots===null){box.innerHTML='<p class="msg">'+L().netErr+'</p>';return}
+  var free=st.slots.filter(function(x){return x.available});
+  if(!free.length){box.innerHTML='<p class="msg soft">'+L().none.replace('{p}',st.people)+'</p>';return}
+  function group(title,list){if(!list.length)return '';return '<div><h3>'+title+'</h3><div class="times">'+list.map(function(x){
+    return '<button type="button" class="time" data-t="'+x.slot+'" aria-pressed="'+(st.time===x.slot)+'"'+(x.available?'':' disabled')+'>'+x.slot+'</button>'}).join('')+'</div></div>'}
+  var lunch=st.slots.filter(function(x){return x.slot<'17:00'}),dinner=st.slots.filter(function(x){return x.slot>='17:00'});
+  if(!lunch.some(function(x){return x.available}))lunch=[];
+  if(!dinner.some(function(x){return x.available}))dinner=[];
+  box.innerHTML=group(L().lunch,lunch)+group(L().dinner,dinner);
+}
+function renderSum(){
+  var ok=st.date&&st.time;
+  $('sum').textContent=ok?longDate(st.date)+' · '+st.time+' · '+L().ppl(st.people):'';
+  $('go').disabled=!ok;
+}
+function render(){
+  root.setAttribute('data-lang',lang);root.lang=lang;
+  document.title=(lang==='el'?'Κράτηση τραπεζιού':'Book a table')+' · Mostra Meze Tavern';
+  ['el','en'].forEach(function(l){$('lang-'+l).setAttribute('aria-pressed',l===lang)});
+  $('pOut').textContent=st.people;$('pMinus').disabled=st.people<=1;$('pPlus').disabled=st.people>=MAXP;
+  renderDays();renderSlots();renderSum();
+  if(st.last)showDone(st.last);
+}
+function loadSlots(){
+  if(!st.date)return render();
+  var seq=++st.seq;st.loading=true;st.slots=[];render();
+  rpc('online_availability',{p_date:st.date,p_people:st.people}).then(function(rows){
+    if(seq!==st.seq)return;st.loading=false;st.slots=rows||[];
+    if(st.time&&!st.slots.some(function(x){return x.slot===st.time&&x.available}))st.time=null;
+    render();
+  }).catch(function(){if(seq!==st.seq)return;st.loading=false;st.slots=null;render()});
+}
+function err(msg){var e=$('err');if(!msg){e.hidden=true;return}e.textContent=msg;e.hidden=false}
+
+['name','phone','email','consent'].forEach(function(id){$(id).addEventListener('input',function(){err('')});$(id).addEventListener('change',function(){err('')})});
+$('pMinus').addEventListener('click',function(){if(st.people>1){st.people--;loadSlots()}});
+$('pPlus').addEventListener('click',function(){if(st.people<MAXP){st.people++;loadSlots()}});
+$('days').addEventListener('click',function(e){var b=e.target.closest('.day');if(!b||b.disabled)return;st.date=b.dataset.d;st.time=null;$('otherDate').value='';err('');loadSlots()});
+$('otherDate').addEventListener('change',function(){if(!this.value)return;st.date=this.value;st.time=null;err('');loadSlots()});
+$('slots').addEventListener('click',function(e){var b=e.target.closest('.time');if(!b||b.disabled)return;st.time=b.dataset.t;err('');render()});
+document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){lang=b.dataset.set;try{localStorage.setItem('mostra-lang',lang)}catch(e){}render()})});
+
+$('book').addEventListener('submit',function(e){
+  e.preventDefault();err('');
+  var name=$('name').value.trim(),phone=$('phone').value.trim(),email=$('email').value.trim(),E=L().err;
+  if(!st.time){err(E.time);return}
+  if(name.length<2){err(E.name);$('name').focus();return}
+  if(phone.replace(/\D/g,'').length<8){err(E.phone);$('phone').focus();return}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){err(E.email);$('email').focus();return}
+  if(!$('consent').checked){err(E.consent);$('consent').focus();return}
+  var go=$('go');go.disabled=true;
+  rpc('online_book',{p_date:st.date,p_time:st.time,p_people:st.people,p_name:name,p_phone:phone,p_email:email,p_notes:$('notes').value.trim(),p_lang:lang,p_website:$('website').value}).then(function(r){
+    if(!r||!r.ok){go.disabled=false;err(E[r&&r.error]||E.rejected);if(r&&r.error==='full'){st.time=null;loadSlots()}return}
+    st.last={ref:r.ref,date:st.date,time:st.time,people:st.people,name:name,email:email,mail:null};
+    showDone(st.last);
+    fetch(SB+'/functions/v1/booking-email',{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json'},body:JSON.stringify({ref:r.ref})})
+      .then(function(x){return x.json()}).then(function(j){st.last.mail=!!(j&&j.sent);showDone(st.last)}).catch(function(){st.last.mail=false;showDone(st.last)});
+  }).catch(function(){go.disabled=false;err(E.net)});
+});
+function showDone(b){
+  $('book').hidden=true;var d=$('done');var first=d.hidden;d.hidden=false;
+  var k=L().dl;
+  $('doneList').innerHTML='<dt>'+k[0]+'</dt><dd>'+esc(longDate(b.date))+'</dd><dt>'+k[1]+'</dt><dd>'+esc(b.time)+'</dd><dt>'+k[2]+'</dt><dd>'+b.people+'</dd><dt>'+k[3]+'</dt><dd>'+esc(b.name)+'</dd><dt>'+k[4]+'</dt><dd class="code">'+esc(b.ref)+'</dd>';
+  $('mailNote').textContent=b.mail===true?L().mailSent.replace('{e}',b.email):b.mail===false?L().mailNo:'';
+  if(first){d.focus({preventScroll:true});d.scrollIntoView({behavior:'smooth',block:'start'})}
+}
+$('ics').addEventListener('click',function(){
+  var b=st.last;if(!b)return;
+  var dt=b.date.replace(/-/g,'')+'T'+b.time.replace(':','')+'00';
+  var endM=+b.time.slice(0,2)*60+(+b.time.slice(3))+120,end=b.date.replace(/-/g,'')+'T'+pad(Math.min(23,Math.floor(endM/60)))+pad(endM>=1440?59:endM%60)+'00';
+  var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Mostra//Booking//EL','BEGIN:VEVENT','UID:'+b.ref+'@mostrameze.com','DTSTAMP:'+new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z',
+    'DTSTART;TZID=Asia/Nicosia:'+dt,'DTEND;TZID=Asia/Nicosia:'+end,'SUMMARY:'+L().ics+' ('+b.people+')','LOCATION:Saripolou 41\\, Limassol','DESCRIPTION:'+(lang==='el'?'Κωδικός κράτησης':'Booking code')+' '+b.ref+' · +357 25 101251','END:VEVENT','END:VCALENDAR'].join('\r\n');
+  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));a.download='mostra-'+b.ref+'.ics';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},1000);
+});
+
+/* cancel */
+function cMsg(t,soft){var m=$('cMsg');m.textContent=t;m.className='msg'+(soft?' soft':'');m.hidden=!t}
+$('cancelForm').addEventListener('submit',function(e){
+  e.preventDefault();var ref=$('cRef').value.trim().toUpperCase(),ph=$('cPhone').value.trim();
+  if(ref.length<5||ph.replace(/\D/g,'').length<8){cMsg(L().cNeed);return}
+  $('cGo').disabled=true;
+  rpc('online_cancel',{p_ref:ref,p_phone:ph}).then(function(r){
+    $('cGo').disabled=false;
+    if(r&&r.ok){cMsg(r.already?L().cAlready:L().cOk.replace('{d}',longDate(r.date)).replace('{t}',r.time),true);return}
+    cMsg(r&&r.error==='past'?L().cPast:L().cNot);
+  }).catch(function(){$('cGo').disabled=false;cMsg(L().err.net)});
+});
+function fromHash(){var m=/^#cancel-([A-Za-z0-9]{4,8})$/.exec(location.hash);if(m){$('cancelBox').open=true;$('cRef').value=m[1].toUpperCase();setTimeout(function(){$('cancel').scrollIntoView({block:'start'});$('cPhone').focus()},60)}}
+window.addEventListener('hashchange',fromHash);
+
+/* start on the first open day */
+for(var i=0;i<DAYS_SHOWN;i++){var s=addDays(today,i);if(CLOSED_DOW.indexOf(fromIso(s).getUTCDay())<0){st.date=s;break}}
+render();loadSlots();fromHash();
+})();
+</script>
+</body>
+</html>
