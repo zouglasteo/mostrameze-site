@@ -144,8 +144,8 @@ footer .wrap{padding-block:22px calc(22px + env(safe-area-inset-bottom));display
         <output id="pOut" aria-live="polite">2</output>
         <button type="button" id="pPlus" aria-label="Περισσότερα άτομα">+</button>
       </div>
-      <p class="big9 el">Για παρέες 9 ατόμων και πάνω, καλέστε μας στο <a href="tel:+35725101251">25 101251</a>.</p>
-      <p class="big9 en">For groups of 9 or more, please call us on <a href="tel:+35725101251">+357 25 101251</a>.</p>
+      <p class="big9 el">Για παρέες 13 ατόμων και πάνω, καλέστε μας στο <a href="tel:+35725101251">25 101251</a>.</p>
+      <p class="big9 en">For groups of 13 or more, please call us on <a href="tel:+35725101251">+357 25 101251</a>.</p>
     </section>
 
     <section class="step">
@@ -218,7 +218,7 @@ footer .wrap{padding-block:22px calc(22px + env(safe-area-inset-bottom));display
 'use strict';
 var SB='https://utzcnxvqshciszjvvgaj.supabase.co';
 var KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV0emNueHZxc2hjaXN6anZ2Z2FqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUyOTI0NzYsImV4cCI6MjExMDg2ODQ3Nn0.7Mr1zgIqTBgCHSFxuQcSa0RcxzJY79N1ZH4g4iFmNyo';
-var CLOSED_DOW=[1], MAXP=8, DAYS_SHOWN=14, MAX_AHEAD=60;
+var CLOSED_DOW=[1], MAXP=12, DAYS_SHOWN=14, MAX_AHEAD=60;
 var root=document.documentElement,$=function(i){return document.getElementById(i)};
 var lang='el';try{lang=localStorage.getItem('mostra-lang')||''}catch(e){}
 if(lang!=='el'&&lang!=='en')lang=(navigator.language||'').toLowerCase().indexOf('el')===0?'el':'en';
